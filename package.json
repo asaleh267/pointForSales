@@ -12,6 +12,8 @@
     "@types/node": "^12.12.30",
     "@types/react": "^16.9.25",
     "@types/react-dom": "^16.9.5",
+    "axios": "^0.19.2",
+    "formik": "^2.1.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
@@ -21,7 +23,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -37,5 +41,21 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@storybook/addon-actions": "^5.3.17",
+    "@storybook/addon-info": "^4.1.11",
+    "@storybook/addon-knobs": "^4.1.11",
+    "@storybook/addon-links": "^5.3.17",
+    "@storybook/addons": "^4.1.11",
+    "@storybook/preset-create-react-app": "^2.1.0",
+    "@storybook/react": "^5.3.17",
+    "@types/react": "^16.8.3",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.1.0",
+    "react-docgen-typescript-loader": "^3.7.1",
+    "react-docgen-typescript-webpack-plugin": "^1.1.0",
+    "storybook-addon-jsx": "^6.0.0"
   }
 }
