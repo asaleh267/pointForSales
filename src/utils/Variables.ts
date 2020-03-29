@@ -6,7 +6,8 @@ export const colors = {
     purple: '#9b59b6',
     orange: '#e67e22',
     red: '#e74c3c',
-    yellow: '#f1c512'
+    yellow: '#f1c512',
+    navy: '#18293d'
 };
 
 export const fontSize = {

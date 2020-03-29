@@ -1,11 +1,19 @@
 import * as React from "react";
-import { Grid } from "@material-ui/core";
+import { POSDialog } from "../../components/shared/POSDialog";
+import { Grid, Button } from "@material-ui/core";
 
 export const DashoardPage: React.FC = props => {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+  };
 
   return (
-    <Grid container>
-      <h2>Hello Aseel Here's the dashboard</h2>
+    <Grid>
+      <POSDialog open={open} title="Test">
+        <p>Testing Dialog</p>
+      </POSDialog>
+      <Button onClick={handleOpen}>Open</Button>
     </Grid>
   );
 };
