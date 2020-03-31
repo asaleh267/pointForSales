@@ -8,7 +8,8 @@ export const colors = {
     orange: '#e67e22',
     red: '#e74c3c',
     yellow: '#f1c512',
-    textColor: '#ecf0f1'
+    textColor: '#ecf0f1',
+    navy: '#18293d'
 };
 
 export const fontSize = {

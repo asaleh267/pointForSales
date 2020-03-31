@@ -106,7 +106,7 @@ export const Login = () => {
                 />
                 <CardActions className={classes.cardActions}>
                   <Button type="submit" className={classes.button}>
-                    Sign in
+                    Login
                   </Button>
                 </CardActions>
               </form>

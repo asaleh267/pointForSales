@@ -1,18 +1,19 @@
 import * as React from "react";
-import { Grid, Typography } from "@material-ui/core";
-import { POSTabs } from "../../components/shared/POSTabs";
+import { POSDialog } from "../../components/shared/POSDialog";
+import { Grid, Button } from "@material-ui/core";
 
 export const DashoardPage: React.FC = props => {
-  const tabs = ["Drinks", "Sweets", "Food", "Deserts"];
-  const value = 1;
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
   return (
-    <Grid container>
-      <h2>Hello Aseel Here's the dashboard</h2>
-      <POSTabs tabs={tabs} value={value}>
-        <Typography style={{ color: "black", opacity: 0.6 }}>
-          No article found... yet
-        </Typography>
-      </POSTabs>
+    <Grid>
+      <POSDialog open={open} title="Test">
+        <p>Testing Dialog</p>
+      </POSDialog>
+      <Button onClick={handleOpen}>Open</Button>
     </Grid>
   );
 };
