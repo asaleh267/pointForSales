@@ -58,12 +58,12 @@ const useStyles = makeStyles(() => ({
 }));
 
 export const POSTabs: React.FC<{
-  tabs: string[];
+  tabs: any[];
   value: number;
   onChange?: (event: React.ChangeEvent<{}>, value: any) => void;
 }> = ({ tabs = [], value = 0, children, onChange = () => {} }) => {
   const classes = useStyles();
-
+  
   return (
     <div className={classes.root}>
       <div>
