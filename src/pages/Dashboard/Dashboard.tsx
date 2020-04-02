@@ -1,20 +1,30 @@
-import * as React from "react";
-import { POSDialog } from "../../components/shared/POSDialog";
-import { Grid, Button } from "@material-ui/core";
+import React from "react";
+import { WithStyles, withStyles } from "@material-ui/core/styles";
+import Paper from "@material-ui/core/Paper";
+import { Stock } from "../../components/pos/stock/Stock";
+import { Divider } from "@material-ui/core";
+import styles from "./styles";
 
-export const DashoardPage: React.FC = props => {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => {
-    setOpen(true);
-  };
+export const DashboardComponent: React.FunctionComponent<WithStyles<typeof styles>> = props => {
+  const { classes } = props;
 
   return (
-    <Grid>
-      <POSDialog open={open} title="Test">
-        <p>Testing Dialog</p>
-      </POSDialog>
-      <Button onClick={handleOpen}>Open</Button>
-    </Grid>
+    <div>
+      <div className={classes.container}>
+        <div style={{ gridColumnEnd: "span 5" }}>
+          <Paper className={classes.paper}>Cart Section</Paper>
+        </div>
+        <div style={{ gridColumnEnd: "span 7" }}>
+          <Paper className={classes.paper}>
+            <Stock></Stock>
+            <Divider></Divider>
+          </Paper>
+        </div>
+      </div>
+    </div>
   );
-};
-export default DashoardPage;
+}
+
+
+const StyledDashboard = withStyles(styles)(DashboardComponent);
+export { StyledDashboard as DashboardPage };
