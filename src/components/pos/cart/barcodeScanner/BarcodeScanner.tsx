@@ -1,5 +1,5 @@
 import * as React from "react";
-import { WithStyles, withStyles } from "@material-ui/core";
+import { WithStyles, withStyles, TextField } from "@material-ui/core";
 import styles from "./styles";
 
 export interface IProps {
@@ -8,7 +8,9 @@ export interface IProps {
 export const BarcodeScannerComponent: React.FunctionComponent<IProps &
   WithStyles<typeof styles>> = props => {
   const { classes } = props;
-  return <h1 className={classes.testClass}>Barcode Scanner</h1>;
+  return (
+    <TextField fullWidth={true} className={classes.input} id="outlined-basic" label="Barcode Scanner" variant="outlined" />
+  );
 };
 
 const StyledBarcodeScanner = withStyles(styles)(BarcodeScannerComponent);
