@@ -2,8 +2,11 @@ import { createStyles, Theme } from "@material-ui/core/styles";
 
 export default (theme: Theme) => {
   return createStyles({
-    testClass: {
-      fontSize: 16
+    title: {
+      textAlign: "left"
+    },
+    inputField: {
+      width: '100%'
     }
   });
 }

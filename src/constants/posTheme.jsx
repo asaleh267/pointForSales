@@ -14,5 +14,11 @@ export const posTheme = createMuiTheme({
     textColor: '#ecf0f1',
     navy: '#18293d'
   },
-
+  overrides: {
+    MuiOutlinedInput: {
+      input: {
+        padding: '8px',
+      },
+    },
+  }
 });
