@@ -1,6 +1,7 @@
 import { createStyles, Theme } from "@material-ui/core/styles";
+import { POSTheme } from "../../constants/posTheme";
 
-export default (theme: Theme) => {
+export default (theme: POSTheme) => {
   return createStyles({
     gridContainer: {
       padding: "16px",
@@ -20,7 +21,7 @@ export default (theme: Theme) => {
       textTransform: "none",
       color: "white",
       //fontSize: fontSize.normal,
-     // background: colors.darkGreen,
+      background: theme.palette.darkGrey,
       padding: 8,
       width: "100%"
     },

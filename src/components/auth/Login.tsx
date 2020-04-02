@@ -15,6 +15,7 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import { useHistory } from "react-router";
 import styles from "./styles";
+import { posTheme } from "../../constants/posTheme";
 
 //Validation Schema
 const validationSchema = Yup.object().shape({
@@ -101,5 +102,5 @@ export const Login: React.FunctionComponent<WithStyles<
   );
 };
 
-const StyledLogin = withStyles(styles)(Login);
+const StyledLogin = withStyles(styles, { withTheme: true})(Login);
 export { StyledLogin as LoginComponent };

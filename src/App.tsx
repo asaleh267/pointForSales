@@ -3,13 +3,13 @@ import "./App.css";
 import { LoginPage } from "./pages/Login/LoginPage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { DashboardPage } from "./pages/Dashboard/Dashboard";
-import { Grid, ThemeProvider } from "@material-ui/core";
+import { Grid, MuiThemeProvider } from "@material-ui/core";
 import { Navbar } from "./components/shared/navbar/Navbar";
-import { posTheme } from "./constants/posTheme";
+import { posTheme, POSTheme } from "./constants/posTheme";
 class App extends React.Component {
   render() {
     return (
-      <ThemeProvider theme={posTheme}>
+      <MuiThemeProvider theme={(posTheme as POSTheme)}>
         <Router>
           <Grid container spacing={1}>
             <Grid item xs={12}>
@@ -27,7 +27,7 @@ class App extends React.Component {
             </div>
           </Grid>
         </Router>
-      </ThemeProvider>
+      </MuiThemeProvider>
     );
   }
 }
