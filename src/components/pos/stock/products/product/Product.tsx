@@ -1,23 +1,15 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { WithStyles, withStyles } from "@material-ui/core/styles";
 import { Typography } from "@material-ui/core";
-
-const useStyles = makeStyles(theme => ({
-    productContainer: {
-        width: 45,
-        height: 45,
-        padding: 8
-    }
-}));
+import style from "./style";
 
 export interface IProps {
   backgroundImage?: string;
   backgroundColor?: string;
   productName: string;
 }
-export const Product: React.FC<IProps> = props => {
-  const classes = useStyles();
-  const { backgroundColor, backgroundImage, productName } = props;
+export const ProductComponent: React.FC<IProps & WithStyles<typeof style>> = props => {
+  const { classes, backgroundColor, backgroundImage, productName } = props;
 
   if (backgroundImage) {
     return (
@@ -33,3 +25,5 @@ export const Product: React.FC<IProps> = props => {
     );
   }
 };
+const StyledProduct = withStyles(style)(ProductComponent);
+export { StyledProduct as Product };

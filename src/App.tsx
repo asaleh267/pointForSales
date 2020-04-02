@@ -1,30 +1,33 @@
 import React from "react";
 import "./App.css";
-import LoginPage from "./pages/Login/LoginPage";
+import { LoginPage } from "./pages/Login/LoginPage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import DashoardPage from "./pages/Dashboard/Dashboard";
-import { Grid } from "@material-ui/core";
-import { Navbar } from "./components/shared/Navbar";
+import { DashboardPage } from "./pages/Dashboard/Dashboard";
+import { Grid, ThemeProvider } from "@material-ui/core";
+import { Navbar } from "./components/shared/navbar/Navbar";
+import { posTheme } from "./constants/posTheme";
 class App extends React.Component {
   render() {
     return (
-      <Router>
-        <Grid container spacing={1}>
-          <Grid item xs={12}>
-          <Navbar></Navbar>
+      <ThemeProvider theme={posTheme}>
+        <Router>
+          <Grid container spacing={1}>
+            <Grid item xs={12}>
+              <Navbar></Navbar>
+            </Grid>
+            <div style={{ width: "100%" }}>
+              <Switch>
+                <Route exact path="/">
+                  <LoginPage />
+                </Route>
+                <Route exact path="/dashboard">
+                  <DashboardPage />
+                </Route>
+              </Switch>
+            </div>
           </Grid>
-          <div style={{ width: "100%" }}>
-            <Switch>
-              <Route exact path="/">
-                <LoginPage />
-              </Route>
-              <Route exact path="/dashboard">
-                <DashoardPage />
-              </Route>
-            </Switch>
-          </div>
-        </Grid>
-      </Router>
+        </Router>
+      </ThemeProvider>
     );
   }
 }

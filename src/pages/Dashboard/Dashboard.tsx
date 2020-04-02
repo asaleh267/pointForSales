@@ -1,30 +1,12 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { WithStyles, withStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
-import Stock from "../../components/pos/stock/Stock";
+import { Stock } from "../../components/pos/stock/Stock";
 import { Divider } from "@material-ui/core";
+import styles from "./styles";
 
-const useStyles = makeStyles(theme => ({
-  container: {
-    display: "grid",
-    gridTemplateColumns: "repeat(12, 1fr)",
-    gridGap: theme.spacing(3)
-  },
-  paper: {
-    padding: theme.spacing(1),
-    textAlign: "center",
-    color: theme.palette.text.secondary,
-    whiteSpace: "nowrap",
-    marginBottom: theme.spacing(1),
-    margin: 8
-  },
-  divider: {
-    margin: theme.spacing(2, 0)
-  }
-}));
-
-export default function Dashboard() {
-  const classes = useStyles();
+export const DashboardComponent: React.FunctionComponent<WithStyles<typeof styles>> = props => {
+  const { classes } = props;
 
   return (
     <div>
@@ -42,3 +24,7 @@ export default function Dashboard() {
     </div>
   );
 }
+
+
+const StyledDashboard = withStyles(styles)(DashboardComponent);
+export { StyledDashboard as DashboardPage };

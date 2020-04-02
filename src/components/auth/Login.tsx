@@ -1,5 +1,12 @@
 import * as React from "react";
-import { Typography, Button, makeStyles, TextField } from "@material-ui/core";
+import {
+  Typography,
+  Button,
+  makeStyles,
+  TextField,
+  WithStyles,
+  withStyles
+} from "@material-ui/core";
 import { fontSize, colors } from "../../utils/Variables";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
@@ -7,36 +14,7 @@ import CardContent from "@material-ui/core/CardContent";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { useHistory } from "react-router";
-
-// Styling
-const useStyle = makeStyles({
-  gridContainer: {
-    padding: "16px",
-    minWidth: "400px"
-  },
-  title: {
-    fontSize: fontSize.large,
-    opacity: 0.9,
-    textAlign: "center"
-  },
-  input: {
-    width: "100%",
-    backgroundColor: "none",
-    marginTop: "16px"
-  },
-  button: {
-    textTransform: "none",
-    color: "white",
-    fontSize: fontSize.normal,
-    background: colors.darkGreen,
-    padding: 8,
-    width: "100%"
-  },
-  cardActions: {
-    padding: 0,
-    marginTop: 16
-  }
-});
+import styles from "./styles";
 
 //Validation Schema
 const validationSchema = Yup.object().shape({
@@ -47,8 +25,10 @@ const validationSchema = Yup.object().shape({
 });
 
 // Component
-export const Login = () => {
-  const classes = useStyle();
+export const Login: React.FunctionComponent<WithStyles<
+  typeof styles
+>> = props => {
+  const { classes } = props;
   let history = useHistory();
 
   return (
@@ -59,10 +39,13 @@ export const Login = () => {
         <Formik
           initialValues={{ email: "", password: "" }}
           onSubmit={values => {
-            if (values.email === 'admin@pos.com' && values.password === 'admin') {
-                history.push('/dashboard');
+            if (
+              values.email === "admin@pos.com" &&
+              values.password === "admin"
+            ) {
+              history.push("/dashboard");
             } else {
-                alert('Invalid Credentials !');
+              alert("Invalid Credentials !");
             }
           }}
           validationSchema={validationSchema}
@@ -117,3 +100,6 @@ export const Login = () => {
     </Card>
   );
 };
+
+const StyledLogin = withStyles(styles)(Login);
+export { StyledLogin as LoginComponent };

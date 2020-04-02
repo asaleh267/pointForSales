@@ -1,10 +1,10 @@
 import * as React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { WithStyles, withStyles } from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import { fontSize, colors } from "../../utils/Variables";
+import styles from "./styles";
 
 function TabPanel(props: any) {
   const { children, value, index, ...other } = props;
@@ -31,39 +31,14 @@ function a11yProps(index: number) {
   };
 }
 
-const useStyles = makeStyles(() => ({
-  root: {
-    flexGrow: 1
-  },
-  tab: {
-    textTransform: "uppercase",
-    width: "auto",
-    height: "auto",
-    fontWeight: 500,
-    fontSize: fontSize.normal,
-    color: colors.darkGrey,
-    backgroundColor: colors.lightGrey,
-    borderBottom: "3px solid green",
-    margin: "0 4px",
-    "&:hover": {
-      backgroundColor: colors.darkGrey,
-      color: colors.lightGrey
-    }
-  },
-  selected: {
-    backgroundColor: colors.darkGrey,
-    borderBottom: "3px solid red",
-    color: colors.lightGrey
-  }
-}));
-
-export const POSTabs: React.FC<{
+export interface POSTabsIProps { 
   tabs: any[];
   value: number;
   onChange?: (event: React.ChangeEvent<{}>, value: any) => void;
-}> = ({ tabs = [], value = 0, children, onChange = () => {} }) => {
-  const classes = useStyles();
-  
+}
+export const POSTabsComponent: React.FunctionComponent<POSTabsIProps &
+  WithStyles<typeof styles>> = ({ classes, tabs = [], value = 0, children, onChange = () => {} }) => {  
+
   return (
     <div className={classes.root}>
       <div>
@@ -73,7 +48,8 @@ export const POSTabs: React.FC<{
               return (
                 <Tab
                   classes={{
-                    selected: classes.selected
+                    selected: classes.selected,
+                    root: classes.tabRoot
                   }}
                   key={e}
                   className={classes.tab}
@@ -97,3 +73,6 @@ export const POSTabs: React.FC<{
     </div>
   );
 };
+
+const StyledPOSTabs = withStyles(styles)(POSTabsComponent);
+export { StyledPOSTabs as POSTabs };

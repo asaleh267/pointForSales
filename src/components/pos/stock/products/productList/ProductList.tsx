@@ -1,15 +1,7 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { Product } from './Product';
+import { Product } from '../product/Product';
 
-
-const useStyles = makeStyles((theme) => ({
- 
-}));
-
-export default function ProductList() {
-  const classes = useStyles();
-  
+export default function ProductList() {  
   return (
     <div>
         <Product productName='aseel' backgroundColor='red'></Product>

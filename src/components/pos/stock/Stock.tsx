@@ -1,26 +1,24 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import FilterByTabs from "./filter/FilterByTabs";
-import SearchBar from "./filter/SearchBar";
+import { makeStyles, WithStyles, withStyles } from "@material-ui/core/styles";
+import { FilterByTabs } from "./filter/filterByTabs/FilterByTabs";
+import { Search } from './filter/filterBySearch/Search';
 import { Divider } from "@material-ui/core";
-import ProductList from "./products/ProductList";
+import ProductList from "./products/productList/ProductList";
+import style from "./style";
 
-const useStyles = makeStyles(theme => ({
-  divider: {
-    margin: 8
-  }
-}));
-
-export default function Stock() {
-  const classes = useStyles();
+export const StockComponent: React.FunctionComponent<
+  WithStyles<typeof style>> = props => {
+  const { classes } = props;
 
   return (
     <>
       <FilterByTabs></FilterByTabs>
       <Divider className={classes.divider}></Divider>
-      <SearchBar></SearchBar>
+      <Search></Search>
       <Divider className={classes.divider}></Divider>
       <ProductList></ProductList>
     </>
   );
 }
+const StyledStock = withStyles(style)(StockComponent);
+export { StyledStock as Stock };

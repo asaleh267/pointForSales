@@ -1,4 +1,4 @@
-import { POSTabs } from "../src/components/shared/POSTabs";
+import { POSTabs } from "./POSTabs";
 import { storiesOf } from "@storybook/react";
 import React from "react";
 
