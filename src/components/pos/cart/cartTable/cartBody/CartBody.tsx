@@ -1,15 +1,21 @@
 import * as React from "react";
 import { WithStyles, withStyles } from "@material-ui/core";
 import styles from "./styles";
+import CartBodyNoItems from "./CartBodyNoItems";
 
 export interface IProps {
+  cartArray: any
 }
 // Component
-export const CartBodyComponent: React.FunctionComponent<IProps &
+export const CartBody: React.FunctionComponent<IProps &
   WithStyles<typeof styles>> = props => {
-  const { classes } = props;
-  return <h1 className={classes.testClass}>Cart Body</h1>;
+  const { classes, cartArray } = props;
+
+  if (cartArray.length === 0) {
+    return <CartBodyNoItems/>
+  }
+  return <h1>Aseel</h1>
 };
 
-const StyledCartBody = withStyles(styles)(CartBodyComponent);
-export { StyledCartBody as CartBody };
+const StyledCartBody = withStyles(styles)(CartBody);
+export { StyledCartBody };

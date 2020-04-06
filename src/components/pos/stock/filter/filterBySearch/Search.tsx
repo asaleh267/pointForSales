@@ -13,7 +13,7 @@ export const Search: React.FunctionComponent = props => {
     return (
     <div>
       <FormControl fullWidth variant="outlined">
-        <InputLabel htmlFor="outlined-adornment-amount">Amount</InputLabel>
+        <InputLabel htmlFor="outlined-adornment-amount">Search</InputLabel>
         <OutlinedInput
           id="outlined-adornment-amount"
           startAdornment={

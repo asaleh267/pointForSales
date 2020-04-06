@@ -5,7 +5,7 @@ export default (theme: Theme) => {
   return createStyles({
     appBar: {
       fontSize: fontSize.normal,
-      height: "50px",
+      height: "80px",
       margin: "auto",
       width: "100%"
     },

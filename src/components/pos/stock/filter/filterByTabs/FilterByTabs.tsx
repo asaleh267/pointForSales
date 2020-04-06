@@ -5,6 +5,7 @@ import { getCategories } from "../../../../../api/server";
 // Component
 export const FilterByTabs: React.FunctionComponent = props => {
   const [categoriesTabs, setCategoriesTabs] = React.useState([]);
+  const [activeTab, setActiveTab] = React.useState();
 
   React.useEffect(() => {
     getCategories().then((res: { data: any }) => {
@@ -13,9 +14,14 @@ export const FilterByTabs: React.FunctionComponent = props => {
     });
   }, []);
 
+  const handleTabChange = (event: React.ChangeEvent<{}>) => {
+    console.log(event);
+  };
+  
+
   return (
     <div>
-      <POSTabs tabs={categoriesTabs} value={-1}></POSTabs>
+      <POSTabs tabs={categoriesTabs} value={-1} onChange={handleTabChange}></POSTabs>
     </div>
   );
 };

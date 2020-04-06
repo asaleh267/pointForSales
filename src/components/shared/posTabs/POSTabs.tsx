@@ -34,7 +34,7 @@ function a11yProps(index: number) {
 export interface POSTabsIProps { 
   tabs: any[];
   value: number;
-  onChange?: (event: React.ChangeEvent<{}>, value: any) => void;
+  onChange?: any;
 }
 export const POSTabsComponent: React.FunctionComponent<POSTabsIProps &
   WithStyles<typeof styles>> = ({ classes, tabs = [], value = 0, children, onChange = () => {} }) => {  

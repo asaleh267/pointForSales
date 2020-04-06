@@ -1,4 +1,4 @@
-import * as React from "react";
+import  React, { useState } from "react";
 import { WithStyles, withStyles, Table } from "@material-ui/core";
 
 import styles from "./styles";
@@ -11,10 +11,11 @@ export interface IProps {}
 export const CartTableComponent: React.FunctionComponent<IProps &
   WithStyles<typeof styles>> = props => {
   const { classes } = props;
+  const [cartArray, setCartArray] = useState([]);
   return (
     <Table stickyHeader>
       <CartHeader></CartHeader>
-      <CartBody></CartBody>
+      <CartBody classes={classes} cartArray={cartArray}></CartBody>
       <CartFooter></CartFooter>
     </Table>
   );
