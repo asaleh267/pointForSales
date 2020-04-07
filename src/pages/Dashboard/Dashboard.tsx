@@ -2,7 +2,7 @@ import React from "react";
 import { WithStyles, withStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import { Stock } from "../../components/pos/stock/Stock";
-import { Divider } from "@material-ui/core";
+import { Divider, Grid, Box } from "@material-ui/core";
 import styles from "./styles";
 import Cart from "../../components/pos/cart";
 
@@ -12,21 +12,21 @@ export const DashboardComponent: React.FunctionComponent<WithStyles<
   const { classes } = props;
 
   return (
-    <div>
-      <div className={classes.container}>
-        <div style={{ gridColumnEnd: "span 5" }}>
+    <Box px={2}>
+      <Grid container spacing={0} className={classes.container}>
+        <Grid item style={{ gridColumnEnd: "span 5" }}>
           <Paper className={classes.paper}>
             <Cart></Cart>
           </Paper>
-        </div>
-        <div style={{ gridColumnEnd: "span 7" }}>
+        </Grid>
+        <Grid item style={{ gridColumnEnd: "span 7" }}>
           <Paper className={classes.paper}>
             <Stock></Stock>
             <Divider></Divider>
           </Paper>
-        </div>
-      </div>
-    </div>
+        </Grid>
+      </Grid>
+    </Box>
   );
 };
 

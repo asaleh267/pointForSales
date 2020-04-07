@@ -35,6 +35,11 @@ const posThemeOptions: POSTheme = {
         padding: '12px 8px',
       },
     },
+    MuiButton: {
+      iconSizeSmall: {
+        margin: 0
+      }
+    }
   }
 };
 
