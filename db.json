@@ -1,33 +1,132 @@
 {
-    "category": [
-        "Computers",
-        "Fruits",
-        "Clothing",
-        "Services"
-    ],
-    "clients": [
-        "Walk of customer",
-        "Aseel Saleh",
-        "Karam Shaweish",
-        "Khalid Ardah",
-        "Sara Ahmed",
-        "Ziad Adeela",
-        "Mahmoud Abdlkareem",
-        "Noor Alazab"
-    ],
-    "products": [
-        {"id": 1, "name": "Computer", "category": "Computers", "price": 100, "quantity": 40, "image": "http://www.dar-elweb.com/demos/zarpos/files/products/08153b71766514c0d83ea3ea97de00f2_thumb.jpg", "bg_color": ""},
-        {"id": 2, "name": "Mouse", "category": "Computers", "price": 70, "quantity": 40, "image": "http://www.dar-elweb.com/demos/zarpos/files/products/4e5ce62c5d4e91cfa7efd093e3638c0d_thumb.jpg", "bg_color": ""},
-        {"id": 3, "name": "Keyboard", "category": "Computers", "price": 30, "quantity": 40, "image": "http://www.dar-elweb.com/demos/zarpos/files/products/c2118e267794191cedcdef5b0fd72fc3_thumb.jpg", "bg_color": ""},
-        {"id": 4, "name": "Apple", "category": "Fruits", "price": 10, "quantity": 40, "image": "http://www.dar-elweb.com/demos/zarpos/files/products/e336f0ef8e5efe615cc749402296801e_thumb.jpeg", "bg_color": ""},
-        {"id": 5, "name": "Orange", "category": "Fruits", "price": 9, "quantity": 40, "image": "http://www.dar-elweb.com/demos/zarpos/files/products/fe072bd1d5c029171ae20d73e869e783_thumb.jpeg", "bg_color": ""},
-        {"id": 6, "name": "Tie", "category": "Clothes", "price": 50, "quantity": 40, "image": "", "bg_color": "#9b59b6"},
-        {"id": 7, "name": "Computer Repair", "category": "Services", "price": 100, "quantity": 40, "image": "http://www.dar-elweb.com/demos/zarpos/files/products/f9ce7b84c89b9fffe7d789d047a3f4bf_thumb.jpeg", "bg_color": ""},
-        {"id": 8, "name": "Kiwi", "category": "Fruits", "price": 15, "quantity": 40, "image": "", "bg_color": "#2ecc71"},
-        {"id": 9, "name": "Gift Folding", "category": "Services", "price": 7, "quantity": 40, "image": "http://www.dar-elweb.com/demos/zarpos/files/products/4d23da3199f973968f246c9154ebb365_thumb.jpeg", "bg_color": ""},
-        {"id": 10, "name": "Jacket", "category": "Clothes", "price": 60, "quantity": 40, "image": "http://www.dar-elweb.com/demos/zarpos/files/products/7bde4f5af295906be56a243254245953_thumb.jpeg", "bg_color": ""},
-        {"id": 11, "name": "Jeans", "category": "Clothes", "price": 150, "quantity": 40, "image": "http://www.dar-elweb.com/demos/zarpos/files/products/aab5f1f58017eda2d34af8b6dca8b7d6_thumb.jpg", "bg_color": ""},
-        {"id": 12, "name": "Motherboard", "category": "Computers", "price": 40, "quantity": 40, "image": "http://www.dar-elweb.com/demos/zarpos/files/products/99f4dd9edd5a5def6b8a70414afffb13_thumb.jpg", "bg_color": ""},
-        {"id": 13, "name": "Headphones", "category": "Computers", "price": 200, "quantity": 40, "image": "http://www.dar-elweb.com/demos/zarpos/files/products/530d2ed6d3f5f892cd839fae31241e33_thumb.jpg", "bg_color": ""  }  
-    ]
+  "category": ["Computers", "Fruits", "Clothes", "Services"],
+  "clients": [
+    "Walk of customer",
+    "Aseel Saleh",
+    "Karam Shaweish",
+    "Khalid Ardah",
+    "Sara Ahmed",
+    "Ziad Adeela",
+    "Mahmoud Abdlkareem",
+    "Noor Alazab"
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Computer",
+      "category": "Computers",
+      "price": 100,
+      "quantity": 40,
+      "image": "",
+      "bg_color": "#2e1da1"
+    },
+    {
+      "id": 2,
+      "name": "Mouse",
+      "category": "Computers",
+      "price": 70,
+      "quantity": 40,
+      "image": "https://cdn11.bigcommerce.com/s-35xfkmxzrs/images/stencil/1280x1280/products/188/756/Computer_Mouse_Wireless_By_Sllik__19605.1537996114.jpg?c=2&imbypass=on",
+      "bg_color": ""
+    },
+    {
+      "id": 3,
+      "name": "Keyboard",
+      "category": "Computers",
+      "price": 30,
+      "quantity": 40,
+      "image": "https://s3-eu-west-1.amazonaws.com/backcslimages/product-images/1000-1000/Goldtouch-V2-Adjustable-Keyboard-Angle.jpg",
+      "bg_color": ""
+    },
+    {
+      "id": 4,
+      "name": "Apple",
+      "category": "Fruits",
+      "price": 10,
+      "quantity": 40,
+      "image": "https://i5.walmartimages.ca/images/Large/094/514/6000200094514.jpg",
+      "bg_color": ""
+    },
+    {
+      "id": 5,
+      "name": "Orange",
+      "category": "Fruits",
+      "price": 9,
+      "quantity": 40,
+      "image": "https://5.imimg.com/data5/KM/QP/MY-22954806/orange-250x250.jpg",
+      "bg_color": ""
+    },
+    {
+      "id": 6,
+      "name": "Shirt",
+      "category": "Clothes",
+      "price": 50,
+      "quantity": 40,
+      "image": "https://contents.mediadecathlon.com/p1484240/k$ab565f3675dbdd7e3c486175e2c16583/men-s-trekking-shirt-travel-100-warm-maroon.jpg?&f=800x800",
+      "bg_color": "#9b59b6"
+    },
+    {
+      "id": 8,
+      "name": "Kiwi",
+      "category": "Fruits",
+      "price": 15,
+      "quantity": 40,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcShKWyiS22yXoVjFlkNJY02YhHvM01TNXx499dtDyiNwc9DPDvJ&usqp=CAU",
+      "bg_color": "#2ecc71"
+    },
+    {
+      "id": 9,
+      "name": "Gift Folding",
+      "category": "Services",
+      "price": 7,
+      "quantity": 40,
+      "image": "",
+      "bg_color": "#db1284"
+    },
+    {
+      "id": 10,
+      "name": "Jacket",
+      "category": "Clothes",
+      "price": 60,
+      "quantity": 40,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTamfBksg2KkimKNL7EM46ETxcPdzf2pg5GB5J9wPEvnzTf1xkC&usqp=CAU",
+      "bg_color": ""
+    },
+    {
+      "id": 11,
+      "name": "Jeans",
+      "category": "Clothes",
+      "price": 150,
+      "quantity": 40,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRYpwFQ-HV7sXDqLTa91Eq9eKWREJ5d_gQ9PhtC_dKlxrXajVKb&usqp=CAU",
+      "bg_color": ""
+    },
+    {
+        "id": 7,
+        "name": "Computer Repair",
+        "category": "Services",
+        "price": 100,
+        "quantity": 40,
+        "image": "",
+        "bg_color": "#9b59b6"
+    },
+    {
+      "id": 12,
+      "name": "Motherboard",
+      "category": "Computers",
+      "price": 40,
+      "quantity": 40,
+      "image": "https://www.empowerlaptop.com/wp-content/uploads/2018/good/dmb10782-w1711-6.jpg",
+      "bg_color": ""
+    },
+    {
+      "id": 13,
+      "name": "Headphones",
+      "category": "Computers",
+      "price": 200,
+      "quantity": 40,
+      "image": "https://cdn.shopify.com/s/files/1/3013/1908/products/Audeze-Mobius-Product-Shots---Oct-2018-CarbonFrontMic_2000x.png?v=1584592428",
+      "bg_color": ""
+    }
+  ]
 }

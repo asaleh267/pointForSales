@@ -34,16 +34,21 @@ function a11yProps(index: number) {
 export interface POSTabsIProps { 
   tabs: any[];
   value: number;
-  onChange?: any;
+  onChange?: (value: any) => void;
 }
 export const POSTabsComponent: React.FunctionComponent<POSTabsIProps &
   WithStyles<typeof styles>> = ({ classes, tabs = [], value = 0, children, onChange = () => {} }) => {  
+  const [selectedTab, setSelectedTab] = React.useState(value);
 
+  const handleTabChange = (event: React.ChangeEvent<{}>, value: any) => {
+    setSelectedTab(value);
+    onChange(value);
+  };
   return (
     <div className={classes.root}>
       <div>
-        <Tabs value={value} onChange={onChange}>
-          {tabs.map(e => {
+        <Tabs value={selectedTab} onChange={handleTabChange}>
+          {tabs.map((e, index )=> {
             if (e !== "") {
               return (
                 <Tab
@@ -51,7 +56,7 @@ export const POSTabsComponent: React.FunctionComponent<POSTabsIProps &
                     selected: classes.selected,
                     root: classes.tabRoot
                   }}
-                  key={e}
+                  key={index}
                   className={classes.tab}
                   label={e}
                   {...a11yProps(0)}
@@ -61,15 +66,6 @@ export const POSTabsComponent: React.FunctionComponent<POSTabsIProps &
           })}
         </Tabs>
       </div>
-      {children && Array.isArray(children) ? (
-        children.map((child, index) => (
-          <TabPanel key={index} value={value} index={index}>
-            {child}
-          </TabPanel>
-        ))
-      ) : (
-        <TabPanel>{children}</TabPanel>
-      )}
     </div>
   );
 };

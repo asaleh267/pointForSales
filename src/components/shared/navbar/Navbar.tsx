@@ -22,8 +22,8 @@ export const NavbarComponent: React.FunctionComponent<WithStyles<
     >
       <Toolbar className={classes.toolbar}>
         <div>
-          {navbarLinks.map(e => (
-            <Link className={classes.link} to={e.link}>
+          {navbarLinks.map((e, index) => (
+            <Link key={index} className={classes.link} to={e.link}>
               <ButtonNavbar title={e.title} icon={e.icon} />
             </Link>
           ))}

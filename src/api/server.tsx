@@ -18,8 +18,6 @@ export function getProducts() {
 }
 
 export function getProductsFilteredByCategory(filter_by: string) {
-  filter_by = 'Computers';
   const url = `${baseUrl}/products?category=${filter_by}`;
-  console.log(axios.get(url));
   return axios.get(url);
 }

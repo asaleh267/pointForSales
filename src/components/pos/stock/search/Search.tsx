@@ -8,8 +8,19 @@ import {
   IconButton
 } from "@material-ui/core";
 
+export interface IProps {
+  value: string;
+  onChange?: (value: any) => void;
+}
 // Component
-export const Search: React.FunctionComponent = props => {
+export const Search: React.FunctionComponent<IProps>  = ({
+  value = "",
+  onChange = () => {},
+}) => {
+
+  const handleSearchChange = (event: any) => {
+    onChange(event.target.value);
+  }
     return (
     <div>
       <FormControl fullWidth variant="outlined">
@@ -24,7 +35,9 @@ export const Search: React.FunctionComponent = props => {
               </IconButton>
             </InputAdornment>
           }
+          onChange={handleSearchChange}
           labelWidth={60}
+          value={value}
         />
       </FormControl>
     </div>
