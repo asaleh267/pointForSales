@@ -1,15 +1,59 @@
-import * as React from "react";
-import { WithStyles, withStyles, TextField } from "@material-ui/core";
+import React, { useState } from "react";
+import {
+  WithStyles,
+  withStyles,
+  TextField,
+  useScrollTrigger,
+} from "@material-ui/core";
 import styles from "./styles";
+import { getProductByBarcode } from "../../../../api/server";
+import { ProductType } from "../../../../types/Product";
+
+const validbarcode = require("barcode-validator");
 
 export interface IProps {
+  onChangeBarcode?: (product: ProductType) => void;
 }
 // Component
-export const BarcodeScannerComponent: React.FunctionComponent<IProps &
-  WithStyles<typeof styles>> = props => {
-  const { classes } = props;
+export const BarcodeScannerComponent: React.FunctionComponent<
+  IProps & WithStyles<typeof styles>
+> = ({
+  classes,
+  onChangeBarcode = () => {},
+}) => {
+  const [errorMsg, setErrorMsg] = useState("");
+
+  const handleOnpress = (event: any) => {
+    const barcodeText = event.target.value;
+    if (validateBarcode(barcodeText) && event.key === "Enter") {    
+      getProductByBarcode(barcodeText).then((res: { data: any }) => {
+        const product = res.data;
+        onChangeBarcode(product[0]);
+      });
+      
+    }
+  };
+
+  const validateBarcode = (text: string) => {   
+    if (text !== "" && !validbarcode(text)) {
+      setErrorMsg("Invalid barcode");
+      return false;
+    } else {
+      setErrorMsg("");
+      return true;
+    }
+  };
+
   return (
-    <TextField fullWidth={true} className={classes.input} id="outlined-basic" label="Barcode Scanner" variant="outlined" />
+    <TextField
+      fullWidth={true}
+      onKeyUp={handleOnpress}
+      className={classes.input}
+      id="outlined-basic"
+      label="Barcode Scanner"
+      variant="outlined"
+      helperText={errorMsg}
+    />
   );
 };
 

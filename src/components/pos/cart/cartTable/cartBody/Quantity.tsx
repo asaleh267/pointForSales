@@ -1,13 +1,36 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { WithStyles, Button, withStyles } from "@material-ui/core";
 import styles from "./styles";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
-export interface IProps {}
+export interface IProps {
+  elementID: number;
+  value: number;
+  inStock: number;
+  onChange?: (elementID: number, value: number) => void;
+}
 const Quantity: React.FunctionComponent<IProps & WithStyles<typeof styles>> = (
   props
 ) => {
-  const { classes } = props;
+  const { classes, elementID, value, onChange = () => {}, inStock } = props;
+  let [quantity, setQuantity] = useState<number>(value);
+
+  const decreaseQuantity = () => {
+    if (value > 1) {
+      setQuantity(--quantity);
+      onChange(elementID, quantity);
+    }
+  }
+
+  const increaseQuantity = () => {
+    setQuantity(++quantity);
+    onChange(elementID, quantity);
+  }
+
+  useEffect(() => {
+    setQuantity(value);
+  }, [value]);
+
   return (
     <div className={classes.quantityContainer}>
       <Button
@@ -15,15 +38,19 @@ const Quantity: React.FunctionComponent<IProps & WithStyles<typeof styles>> = (
         color="primary"
         size="small"
         className={classes.button}
+        onClick={decreaseQuantity}
         startIcon={<RemoveIcon />}
+        disabled={quantity === 1}
       ></Button>
-      <input type="text" value={1} className={classes.input} readOnly />
+      <input type="text" value={quantity} className={classes.input} readOnly/>
       <Button
         variant="contained"
         color="primary"
         size="small"
         className={classes.button}
+        onClick={increaseQuantity}
         startIcon={<AddIcon />}
+        disabled={quantity === inStock}
       ></Button>
     </div>
   );

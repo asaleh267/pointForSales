@@ -21,3 +21,8 @@ export function getProductsFilteredByCategory(filter_by: string) {
   const url = `${baseUrl}/products?category=${filter_by}`;
   return axios.get(url);
 }
+
+export function getProductByBarcode(barcode: string) {
+  const url = `${baseUrl}/products?barcode=${barcode}`;
+  return axios.get(url);
+}

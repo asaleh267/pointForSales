@@ -9,7 +9,7 @@ export interface IProps {
   value: any;
   onChange?: (category: string, value: any) => void;
 }
-export const Tabs: React.FunctionComponent<IProps> = ({
+export const StockTabs: React.FunctionComponent<IProps> = ({
   value = 0,
   onChange = () => {},
 }) => {
@@ -22,8 +22,12 @@ export const Tabs: React.FunctionComponent<IProps> = ({
     });
   }, []);
 
-  const handleTabChange = (value: any) => {
-    onChange(categoriesTabs[value], value);
+  const handleTabChange = (value: any) => {  
+    if (value === 0 ) { 
+      onChange("All", value);
+    } else {
+      onChange(categoriesTabs[value-1], value);
+    }
   };
 
   return (
@@ -31,6 +35,7 @@ export const Tabs: React.FunctionComponent<IProps> = ({
       <POSTabs
         tabs={categoriesTabs}
         value={value}
+        all={true}
         onChange={handleTabChange}
       ></POSTabs>
     </div>

@@ -8,7 +8,8 @@ export default (theme: Theme) => {
         height: 120,
         margin: "8px auto",
         borderRadius: theme.spacing(2),
-        position: "relative"
+        position: "relative",
+        cursor: "pointer"
     },
     productName: {
       paddingTop: theme.spacing(2),

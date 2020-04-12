@@ -1,27 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { WithStyles, withStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import { Stock } from "../../components/pos/stock/Stock";
 import { Divider, Grid, Box } from "@material-ui/core";
 import styles from "./styles";
 import Cart from "../../components/pos/cart";
+import { ProductType } from "../../types/Product";
 
 export const DashboardComponent: React.FunctionComponent<WithStyles<
   typeof styles
->> = props => {
+>> = (props) => {
   const { classes } = props;
+  const [selectedProduct, setSelectedProduct] = useState<ProductType>();
 
+  const handleOnClickProduct = (product: ProductType) => {
+    setSelectedProduct(product);
+  };
+  
   return (
     <Box px={2}>
       <Grid container spacing={0} className={classes.container}>
         <Grid item style={{ gridColumnEnd: "span 5" }}>
           <Paper className={classes.paper}>
-            <Cart></Cart>
+            <Cart product={selectedProduct} ></Cart>
           </Paper>
         </Grid>
         <Grid item style={{ gridColumnEnd: "span 7" }}>
           <Paper className={classes.paper}>
-            <Stock></Stock>
+            <Stock selectedProduct={handleOnClickProduct}></Stock>
             <Divider></Divider>
           </Paper>
         </Grid>

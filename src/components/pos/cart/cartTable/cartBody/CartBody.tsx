@@ -8,34 +8,38 @@ import {
 } from "@material-ui/core";
 import styles from "./styles";
 import CartBodyNoItems from "./CartBodyNoItems";
-import { ProductType } from "../../../stock/products/product/Product";
+import { ProductType } from "../../../../../types/Product";
 import Quantity from "./Quantity";
-
-import DeleteButton from "../controls/deleteButton";
 import StyledDeleteItem from "./DeleteItem";
 export interface IProps {
-  cartArray: any;
+  data: ProductType[];
+  deleteItem: (productID: number) => void;
+  changeQuantity: (productID: number, quantity: number) => void;
 }
 // Component
 export const CartBodyComponent: React.FunctionComponent<
   IProps & WithStyles<typeof styles>
 > = (props) => {
-  const { classes, cartArray } = props;
+  const { classes, data, deleteItem, changeQuantity } = props;
 
-  if (cartArray.length === 0) {
+  if (data.length === 0) {
     return <CartBodyNoItems />;
   }
+
   return (
     <TableBody>
-      {cartArray.map((element: ProductType) => (
+      {data.map((element: ProductType) => (
         <TableRow className={classes.row} key={element.id}>
           <TableCell>
-            <StyledDeleteItem></StyledDeleteItem>
+            <StyledDeleteItem
+              itemID={element.id}
+              onDelete={deleteItem}
+            ></StyledDeleteItem>
           </TableCell>
           <TableCell>{element.name}</TableCell>
           <TableCell>{element.price}</TableCell>
           <TableCell>
-            <Quantity></Quantity>
+            <Quantity onChange={changeQuantity} elementID={element.id} value={element.quantity} inStock={element.instock}></Quantity>
           </TableCell>
           <TableCell>{element.price * element.quantity}</TableCell>
         </TableRow>

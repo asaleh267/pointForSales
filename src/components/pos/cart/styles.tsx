@@ -5,6 +5,9 @@ export default (theme: Theme) => {
     cartContainer: {
       display: 'flex',
       flexDirection: 'column'
+    },
+    divider: {
+      margin: theme.spacing(1)
     }
   });
 }
