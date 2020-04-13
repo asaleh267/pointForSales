@@ -2,9 +2,12 @@ import React from "react";
 import { TableRow, TableCell, WithStyles, withStyles } from "@material-ui/core";
 import styles from "./styles";
 
-export interface IProps {}
+export interface IProps {
+  output: number;
+}
 const Total: React.FunctionComponent<IProps & WithStyles<typeof styles>> = ({
-    classes
+    classes,
+    output
 }) => {
   return (
     <TableRow>
@@ -15,10 +18,7 @@ const Total: React.FunctionComponent<IProps & WithStyles<typeof styles>> = ({
         Total
       </TableCell>
       <TableCell className={classes.tableCell} align="left">
-        11
-      </TableCell>
-      <TableCell className={classes.tableCell} align="right">
-        5 items
+        { output}
       </TableCell>
     </TableRow>
   );

@@ -16,7 +16,7 @@ export const ProductComponent: React.FC<IProps & WithStyles<typeof style>> = ({
   let productStyle, mask;
 
   const handleOnClick = () => {
-    selectedProduct(product);
+    selectedProduct({...product});
   };
   if (product.image) {
     productStyle = {

@@ -2,9 +2,14 @@ import React from "react";
 import { TableRow, TableCell, WithStyles, withStyles } from "@material-ui/core";
 import styles from "./styles";
 
-export interface IProps {}
+export interface IProps {
+  output: number;
+  noOfItems: number;
+}
 const SubTotal: React.FunctionComponent<IProps & WithStyles<typeof styles>> = ({
-    classes
+    classes,
+    output,
+    noOfItems
 }) => {
   return (
     <TableRow>
@@ -15,10 +20,10 @@ const SubTotal: React.FunctionComponent<IProps & WithStyles<typeof styles>> = ({
         Subtotal
       </TableCell>
       <TableCell className={classes.tableCell} align="left">
-        11
+        {output}
       </TableCell>
       <TableCell className={classes.tableCell} align="right">
-        5 items
+        {noOfItems} { noOfItems > 1 ? 'items': 'item'}
       </TableCell>
     </TableRow>
   );

@@ -2,9 +2,14 @@ import React from "react";
 import { TableRow, TableCell, WithStyles, withStyles } from "@material-ui/core";
 import styles from "./styles";
 
-export interface IProps {}
+export interface IProps {
+  tax: number,
+  output: number
+}
 const OrderTax: React.FunctionComponent<IProps & WithStyles<typeof styles>> = ({
-    classes
+    classes,
+    tax, 
+    output
 }) => {
   return (
     <TableRow>
@@ -15,10 +20,10 @@ const OrderTax: React.FunctionComponent<IProps & WithStyles<typeof styles>> = ({
         Order Tax
       </TableCell>
       <TableCell className={classes.tableCell} align="left">
-        11
+        {tax}
       </TableCell>
       <TableCell className={classes.tableCell} align="right">
-        5 items
+        {output}
       </TableCell>
     </TableRow>
   );
