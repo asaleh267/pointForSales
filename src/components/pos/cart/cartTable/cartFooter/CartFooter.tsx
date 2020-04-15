@@ -7,14 +7,14 @@ import {
   TableBody,
 } from "@material-ui/core";
 import styles from "./styles";
-import { ProductType } from "../../../../../types/Product";
+import { Product } from "../../../../../types/Product";
 import SubTotal from "./SubTotal";
 import OrderTax from "./OrderTax";
 import Discount from "./Discount";
 import Total from "./Total";
 
 export interface IProps {
-  data: ProductType[];
+  data: Product[];
 }
 // Component
 export const CartFooterComponent: React.FunctionComponent<

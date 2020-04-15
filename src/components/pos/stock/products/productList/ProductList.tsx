@@ -1,12 +1,12 @@
 import * as React from "react";
 import { WithStyles, withStyles, Grid, Divider } from "@material-ui/core";
-import { ProductType } from "../../../../../types/Product";
+import { Product } from "../../../../../types/Product";
 import styles from "./styles";
-import { Product } from "../product/Product";
+import { ProductItem } from "../productItem/ProductItem";
 
 export interface IProps {
   list: any;
-  selectedProduct?: (product: ProductType) => void;
+  selectedProduct?: (product: Product) => void;
 }
 // Component
 export const ProductList: React.FunctionComponent<
@@ -15,10 +15,10 @@ export const ProductList: React.FunctionComponent<
   const { classes, list } = props;
   return (
     <Grid container>
-      {list.map((element: ProductType, index: number) => (
+      {list.map((element: Product, index: number) => (
         element.instock > 0 &&  
           <Grid key={index} item xs={2} className={classes.productContainer}>
-          <Product {...props} product={element}></Product>
+          <ProductItem {...props} product={element}></ProductItem>
         </Grid>
 
       ))}

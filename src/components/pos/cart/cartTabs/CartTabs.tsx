@@ -1,52 +1,90 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { POSTabs } from "../../../shared/posTabs/POSTabs";
 import { getCategories } from "../../../../api/server";
 
 // Component
 
 export interface IProps {
-  value: any;
-  onChange?: (category: string, value: any) => void;
-}
-
+  onChange?: (value: string) => void;
+  onAdd?: () => void;
+} 
 
 export const CartTabs: React.FunctionComponent<IProps> = ({
-  value = 0,
   onChange = () => {},
+  onAdd = () => {}
 }) => {
-  const [sessionTabs, setSessionTabs] = useState<string[]>([]);
+  const [cartTabs, setCartTabs] = useState<string[]>([]);
+  const [activeTab, setActiveTab] = useState<string>("");
 
   useEffect(() => {
-    // read from local storage
-    setSessionTabs(JSON.parse(localStorage.getItem("sessions") || "[]"));
-    setSessionTabs(['Session 1', 'Session 2']);
+    //sessions
+    let sessions = localStorage.getItem("cartSessions");
+    if (sessions) {
+      setCartTabs(JSON.parse(sessions));
+    } else {
+      setCartTabs(["session1"]);
+      localStorage.setItem("activeSession", "session1");
+      localStorage.setItem("cartSessions", JSON.stringify(["session1"]));
+    }
+    // set active tab
+    let activeSession = localStorage.getItem("activeSession");
+    if (activeSession) {
+      setActiveTab(activeSession);
+    } else {
+      setActiveTab(cartTabs[0]);
+    }
   }, []);
 
-  const handleTabChange = (value: any) => {
-    alert("Get Sessions data");
+  const handleTabChange = (value: string) => {
+    changeActiveTab(value);
+    onChange(value);
   };
 
   const handleAddTab = () => {
-    setSessionTabs(['Session 1', 'Session 2', 'Session 3'])
-    alert('Add Session');
-  }
+    let lastSession = cartTabs[cartTabs.length - 1];
+    let lastIndex = parseInt(lastSession.charAt(lastSession.length - 1)) + 1;
+    let cartSessionTabs = [...cartTabs];
+    cartSessionTabs.push("session" + lastIndex);
+    changeCartTabs(cartSessionTabs);
+    changeActiveTab("session" + lastIndex);
+    onAdd();
+  };
+
+  const changeCartTabs = (value: string[]) => {
+    setCartTabs(value);
+    localStorage.setItem("cartSessions", JSON.stringify(value));
+  };
+
+  const changeActiveTab = (value: string) => {
+    setActiveTab(value);
+    localStorage.setItem("activeSession", value);
+  };
 
   const handleRemoveTab = () => {
-    setSessionTabs(['Session 1'])
-    alert('Remove Last Session');
-  }
+    let indexOfSelectedTab = cartTabs.indexOf(activeTab);
+    let cartSessionTabs = [...cartTabs];
+    if (cartTabs.length > 1) {
+      cartSessionTabs.splice(indexOfSelectedTab, 1);
+      changeCartTabs(cartSessionTabs);
+      changeActiveTab(cartTabs[indexOfSelectedTab - 1]);
+    } else {
+      alert("You can delete the last session");
+    }
+  };
 
   return (
     <div>
-      <POSTabs
-        tabs={sessionTabs}
-        value={value}
-        add={true}
-        remove={true}
-        onChange={handleTabChange}
-        addTab={handleAddTab}
-        removeTab={handleRemoveTab}
-      ></POSTabs>
+    { activeTab && cartTabs && (
+        <POSTabs
+          tabs={cartTabs}
+          value={activeTab}
+          add={true}
+          remove={true}
+          onChange={handleTabChange}
+          onAddTab={handleAddTab}
+          onRemoveTab={handleRemoveTab}
+        />
+      )}
     </div>
   );
 };

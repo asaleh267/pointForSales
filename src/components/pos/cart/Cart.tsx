@@ -4,29 +4,73 @@ import styles from "./styles";
 import { Client } from "./client/Client";
 import BarcodeScanner from "./barcodeScanner";
 import CartTable from "./cartTable";
-import { ProductType } from "../../../types/Product";
+import { Product } from "../../../types/Product";
 import { CartTabs } from "./cartTabs/CartTabs";
 
 export interface IProps {
-  product?: ProductType;
+  product?: Product;
 }
 
 // Component
 export const CartComponent: React.FunctionComponent<
   IProps & WithStyles<typeof styles>
 > = ({ classes, product }) => {
-  const [cartList, setCartList] = useState<ProductType[]>([]);
+  const [cartList, setCartList] = useState<Product[]>([]);
   const [showConfirmDeleteDialog, setConfirmDialog] = useState(false);
 
-  const handleBarcodeChange = (product: ProductType) => {
+  const handleBarcodeChange = (product: Product) => {
     addProductToCart(product);
   };
+
+  useEffect(() => {
+    let activeSession = localStorage.getItem("activeSession");
+    let sessionCartsData = localStorage.getItem("sessionsCarts");
+    if (sessionCartsData) {
+      let sessionCarts = JSON.parse(sessionCartsData);
+      let sessionIndex = sessionCarts.findIndex(
+        (element: any) => element.sessionID === activeSession
+      );
+      if (sessionIndex !== -1) {
+        setCartList(sessionCarts[sessionIndex].cartListData);
+      } else {
+        setCartList([]);
+      }
+    }
+  }, []);
 
   useEffect(() => {
     if (product) {
       addProductToCart(product);
     }
   }, [product]);
+
+  useEffect(() => {
+    if (cartList.length > 0) {
+      debugger;
+      let activeSession = localStorage.getItem("activeSession");
+      let sessionCartsData = localStorage.getItem("sessionsCarts");
+      if (!sessionCartsData) {
+        let sessionsCarts = [
+          { sessionID: activeSession, cartListData: cartList },
+        ];
+        localStorage.setItem("sessionsCarts", JSON.stringify(sessionsCarts));
+      } else {
+        let sessionCarts = JSON.parse(sessionCartsData);
+        let sessionIndex = sessionCarts.findIndex(
+          (element: any) => element.sessionID === activeSession
+        );
+        if (sessionIndex !== -1) {
+          sessionCarts[sessionIndex].cartListData = cartList;
+          localStorage.setItem("sessionsCarts", JSON.stringify(sessionCarts));
+        } else {
+          let sessionsCarts =  { sessionID: activeSession, cartListData: cartList };
+          sessionCarts.push(sessionsCarts);
+          localStorage.setItem("sessionsCarts", JSON.stringify(sessionCarts));
+        }
+
+      }
+    }
+  }, [cartList]);
 
   const addProductToCart = (product: any) => {
     let productIndex = cartList.findIndex(
@@ -60,9 +104,28 @@ export const CartComponent: React.FunctionComponent<
     setCartList([...array]);
   };
 
+  const handleTabChange = (value: string) => {
+    let activeSession = localStorage.getItem("activeSession");
+    let sessionCartsData = localStorage.getItem("sessionsCarts");
+    if (sessionCartsData) {
+      let sessionCarts = JSON.parse(sessionCartsData);
+      let sessionIndex = sessionCarts.findIndex(
+        (element: any) => element.sessionID === activeSession
+      );
+      if (sessionIndex !== -1) {
+        setCartList(sessionCarts[sessionIndex].cartListData);
+      } else {
+        setCartList([]);
+      }
+    }
+  };
+
+  const handleOnAdd = () => {
+    setCartList([]);
+  }
   return (
     <Grid className={classes.cartContainer}>
-      <CartTabs value={1}></CartTabs>
+      <CartTabs onChange={handleTabChange} onAdd={handleOnAdd}></CartTabs>
       <Divider className={classes.divider}></Divider>
       <Client></Client>
       <BarcodeScanner onChangeBarcode={handleBarcodeChange}></BarcodeScanner>

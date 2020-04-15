@@ -22,12 +22,8 @@ export const StockTabs: React.FunctionComponent<IProps> = ({
     });
   }, []);
 
-  const handleTabChange = (value: any) => {  
-    if (value === 0 ) { 
-      onChange("All", value);
-    } else {
-      onChange(categoriesTabs[value-1], value);
-    }
+  const handleTabChange = (value: any) => {
+    onChange(value, value);
   };
 
   return (

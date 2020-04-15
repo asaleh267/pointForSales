@@ -8,11 +8,11 @@ import {
 } from "@material-ui/core";
 import styles from "./styles";
 import CartBodyNoItems from "./CartBodyNoItems";
-import { ProductType } from "../../../../../types/Product";
+import { Product } from "../../../../../types/Product";
 import Quantity from "./Quantity";
 import StyledDeleteItem from "./DeleteItem";
 export interface IProps {
-  data: ProductType[];
+  data: Product[];
   deleteItem: (productID: number) => void;
   changeQuantity: (productID: number, quantity: number) => void;
 }
@@ -28,7 +28,7 @@ export const CartBodyComponent: React.FunctionComponent<
 
   return (
     <TableBody>
-      {data.map((element: ProductType) => (
+      {data.map((element: Product) => (
         <TableRow className={classes.row} key={element.id}>
           <TableCell>
             <StyledDeleteItem

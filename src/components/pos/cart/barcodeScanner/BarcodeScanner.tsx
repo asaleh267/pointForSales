@@ -7,12 +7,12 @@ import {
 } from "@material-ui/core";
 import styles from "./styles";
 import { getProductByBarcode } from "../../../../api/server";
-import { ProductType } from "../../../../types/Product";
+import { Product } from "../../../../types/Product";
 
 const validbarcode = require("barcode-validator");
 
 export interface IProps {
-  onChangeBarcode?: (product: ProductType) => void;
+  onChangeBarcode?: (product: Product) => void;
 }
 // Component
 export const BarcodeScannerComponent: React.FunctionComponent<

@@ -5,15 +5,15 @@ import { Stock } from "../../components/pos/stock/Stock";
 import { Divider, Grid, Box } from "@material-ui/core";
 import styles from "./styles";
 import Cart from "../../components/pos/cart";
-import { ProductType } from "../../types/Product";
+import { Product } from "../../types/Product";
 
 export const DashboardComponent: React.FunctionComponent<WithStyles<
   typeof styles
 >> = (props) => {
   const { classes } = props;
-  const [selectedProduct, setSelectedProduct] = useState<ProductType>();
+  const [selectedProduct, setSelectedProduct] = useState<Product>();
 
-  const handleOnClickProduct = (product: ProductType) => {
+  const handleOnClickProduct = (product: Product) => {
     setSelectedProduct(product);
   };
   

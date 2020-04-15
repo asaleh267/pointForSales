@@ -32,7 +32,7 @@ export const ClientComponent: React.FunctionComponent<IProps &
       <FormControl className={classes.inputField} variant="outlined">
         <Select native>
           {clients.map((element, index) => (
-            <option value={element}>{element}</option>
+            <option key={index} value={element}>{element}</option>
           ))}
         </Select>
       </FormControl>

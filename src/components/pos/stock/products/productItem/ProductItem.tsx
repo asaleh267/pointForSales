@@ -2,13 +2,13 @@ import React from "react";
 import { WithStyles, withStyles } from "@material-ui/core/styles";
 import { Typography } from "@material-ui/core";
 import style from "./style";
-import { ProductType } from "../../../../../types/Product";
+import { Product } from "../../../../../types/Product";
 
 export interface IProps {
-  product: ProductType;
-  selectedProduct?: (product: ProductType) => void;
+  product: Product;
+  selectedProduct?: (product: Product) => void;
 }
-export const ProductComponent: React.FC<IProps & WithStyles<typeof style>> = ({
+export const ProductItemComponent: React.FC<IProps & WithStyles<typeof style>> = ({
   classes,
   product,
   selectedProduct = () => {},
@@ -18,14 +18,14 @@ export const ProductComponent: React.FC<IProps & WithStyles<typeof style>> = ({
   const handleOnClick = () => {
     selectedProduct({...product});
   };
-  if (product.image) {
+  if (product.imageUrl) {
     productStyle = {
-      backgroundImage: `url(${product.image})`,
+      backgroundImage: `url(${product.imageUrl})`,
       backgroundSize: "cover",
     };
     mask = <div className={classes.mask}></div>;
   } else {
-    productStyle = { backgroundColor: product.bg_color };
+    productStyle = { backgroundColor: product.bgColor };
   }
 
   return (
@@ -41,5 +41,5 @@ export const ProductComponent: React.FC<IProps & WithStyles<typeof style>> = ({
     </div>
   );
 };
-const StyledProduct = withStyles(style)(ProductComponent);
-export { StyledProduct as Product };
+const StyledProduct = withStyles(style)(ProductItemComponent);
+export { StyledProduct as ProductItem };

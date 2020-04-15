@@ -7,6 +7,7 @@ import Box from "@material-ui/core/Box";
 import styles from "./styles";
 import HomeIcon from "@material-ui/icons/HomeOutlined";
 
+
 function TabPanel(props: any) {
   const { children, value, index, ...other } = props;
 
@@ -34,31 +35,31 @@ function a11yProps(index: number) {
 
 export interface POSTabsIProps {
   tabs: any[];
-  value: number;
-  onChange?: (value: any) => void;
+  value?: string;
+  onChange?: (value: string) => void;
   add?: boolean;
   remove?: boolean;
   all?: boolean;
-  addTab?: () => void;
-  removeTab?: () => void;
+  onAddTab?: () => void;
+  onRemoveTab?: () => void;
 }
 export const POSTabsComponent: React.FunctionComponent<
   POSTabsIProps & WithStyles<typeof styles>
 > = ({
   classes,
   tabs = [],
-  value = 0,
+  value = "",
   children,
   onChange = () => {},
   add,
   remove,
   all,
-  addTab = () => {},
-  removeTab = () => {},
+  onAddTab: addTab = () => {},
+  onRemoveTab: removeTab = () => {},
 }) => {
-  const [selectedTab, setSelectedTab] = React.useState(value);
+  const [selectedTab, setSelectedTab] = React.useState<string>(value);
 
-  const handleTabChange = (event: React.ChangeEvent<{}>, value: any) => {
+  const handleTabChange = (event: React.ChangeEvent<{}>, value: string) => {
     setSelectedTab(value);
     onChange(value);
   };
@@ -66,40 +67,45 @@ export const POSTabsComponent: React.FunctionComponent<
   return (
     <div className={classes.root}>
       <div style={{ display: "flex" }}>
-        <Tabs value={selectedTab} onChange={handleTabChange}>
-          {all && (
-            <Tab
-              classes={{
-                selected: classes.selected,
-                root: classes.tabRoot,
-              }}
-              key={-1}
-              className={classes.tab}
-              icon={<HomeIcon />}
-              {...a11yProps(0)}
-            />
-          )}
-          {tabs.map((e, index) => {
-            if (e !== "") {
-              return (
-                <Tab
-                  classes={{
-                    selected: classes.selected,
-                    root: classes.tabRoot,
-                  }}
-                  key={index}
-                  className={classes.tab}
-                  label={e}
-                  {...a11yProps(0)}
-                />
-              );
-            } else return null;
-          })}
-        </Tabs>
+        {tabs.length > 0 && (
+          <Tabs value={selectedTab || false} onChange={handleTabChange}>
+            {all && (
+              <Tab
+                value="all"
+                classes={{
+                  selected: classes.selected,
+                  root: classes.tabRoot,
+                }}
+                key="all"
+                className={classes.tab}
+                icon={<HomeIcon />}
+                {...a11yProps(0)}
+              />
+            )}
+            {tabs.map((tab) => {
+              if (tab !== "") {
+                return (
+                  <Tab
+                    value={tab}
+                    classes={{
+                      selected: classes.selected,
+                      root: classes.tabRoot,
+                    }}
+                    key={tab}
+                    className={classes.tab}
+                    label={tab}
+                    {...a11yProps(0)}
+                  />
+                );
+              } else return null;
+            })}
+          </Tabs>
+        )}
         {(add || remove) && (
-          <Tabs value={1}>
+          <Tabs value="remove">
             {add && (
               <Tab
+                value="add"
                 classes={{
                   root: classes.tabRoot,
                 }}
@@ -111,6 +117,7 @@ export const POSTabsComponent: React.FunctionComponent<
             )}
             {remove && (
               <Tab
+                value="remove"
                 className={classes.tab}
                 classes={{
                   root: classes.tabRoot,

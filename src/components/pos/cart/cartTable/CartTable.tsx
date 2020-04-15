@@ -11,10 +11,10 @@ import CartHeader from "./cartHeader";
 import CartBody from "./cartBody";
 import CartFooter from "./cartFooter";
 import CartActions from "./controls/cartActions";
-import { ProductType } from "../../../../types/Product";
+import { Product } from "../../../../types/Product";
 
 export interface IProps {
-  data: ProductType[];
+  data: Product[];
   deleteItem: (productID: number) => void;
   changeQuantity: (productID: number, quantity: number) => void;
 }
