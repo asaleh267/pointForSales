@@ -16,7 +16,7 @@ export const CartComponent: React.FunctionComponent<
   IProps & WithStyles<typeof styles>
 > = ({ classes, product }) => {
   const [cartList, setCartList] = useState<Product[]>([]);
-  const [showConfirmDeleteDialog, setConfirmDialog] = useState(false);
+  const [client, setClient] = useState<string>("Walk of customer");
 
   const handleBarcodeChange = (product: Product) => {
     addProductToCart(product);
@@ -46,7 +46,6 @@ export const CartComponent: React.FunctionComponent<
 
   useEffect(() => {
     if (cartList.length > 0) {
-      debugger;
       let activeSession = localStorage.getItem("activeSession");
       let sessionCartsData = localStorage.getItem("sessionsCarts");
       if (!sessionCartsData) {
@@ -63,11 +62,13 @@ export const CartComponent: React.FunctionComponent<
           sessionCarts[sessionIndex].cartListData = cartList;
           localStorage.setItem("sessionsCarts", JSON.stringify(sessionCarts));
         } else {
-          let sessionsCarts =  { sessionID: activeSession, cartListData: cartList };
+          let sessionsCarts = {
+            sessionID: activeSession,
+            cartListData: cartList,
+          };
           sessionCarts.push(sessionsCarts);
           localStorage.setItem("sessionsCarts", JSON.stringify(sessionCarts));
         }
-
       }
     }
   }, [cartList]);
@@ -122,17 +123,23 @@ export const CartComponent: React.FunctionComponent<
 
   const handleOnAdd = () => {
     setCartList([]);
-  }
+  };
+
+  const handleChangeCustomer = (value: string) => {
+    setClient(value);
+  };
+
   return (
     <Grid className={classes.cartContainer}>
       <CartTabs onChange={handleTabChange} onAdd={handleOnAdd}></CartTabs>
       <Divider className={classes.divider}></Divider>
-      <Client></Client>
+      <Client onChange={handleChangeCustomer}></Client>
       <BarcodeScanner onChangeBarcode={handleBarcodeChange}></BarcodeScanner>
       <CartTable
         deleteItem={handleDeleteItem}
         data={cartList}
         changeQuantity={handleQuantityChange}
+        client={client}
       ></CartTable>
     </Grid>
   );

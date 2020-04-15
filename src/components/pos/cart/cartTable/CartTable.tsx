@@ -17,13 +17,14 @@ export interface IProps {
   data: Product[];
   deleteItem: (productID: number) => void;
   changeQuantity: (productID: number, quantity: number) => void;
+  client: string;
 }
 
 // Component
 export const CartTableComponent: React.FunctionComponent<
   IProps & WithStyles<typeof styles>
 > = (props) => {
-  const { classes, data } = props;
+  const { classes, data, client } = props;
 
   return (
     <>
@@ -34,7 +35,7 @@ export const CartTableComponent: React.FunctionComponent<
         </Table>
       </TableContainer>
       <CartFooter data={data}></CartFooter>
-      <CartActions></CartActions>
+      <CartActions client={client} data={data}></CartActions>
     </>
   );
 };

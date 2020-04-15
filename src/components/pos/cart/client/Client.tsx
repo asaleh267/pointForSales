@@ -5,17 +5,20 @@ import {
   FormControl,
   InputLabel,
   Select,
-  Typography
+  Typography,
 } from "@material-ui/core";
 import { getClients } from "../../../../api/server";
 
 import styles from "./styles";
 
-export interface IProps {}
+export interface IProps {
+  onChange: (value: string) => void;
+}
 // Component
-export const ClientComponent: React.FunctionComponent<IProps &
-  WithStyles<typeof styles>> = props => {
-  const { classes } = props;
+export const ClientComponent: React.FunctionComponent<
+  IProps & WithStyles<typeof styles>
+> = (props) => {
+  const { classes, onChange = () => {} } = props;
   const [clients, setClients] = React.useState([]);
 
   React.useEffect(() => {
@@ -24,15 +27,20 @@ export const ClientComponent: React.FunctionComponent<IProps &
     });
   }, []);
 
+  const handleSelectChange = (event: any) => {
+    onChange(event.target.value)
+  };
   return (
     <>
       <Typography className={classes.title} variant="h5">
         Choose a client
       </Typography>
       <FormControl className={classes.inputField} variant="outlined">
-        <Select native>
+        <Select native onChange={handleSelectChange}>
           {clients.map((element, index) => (
-            <option key={index} value={element}>{element}</option>
+            <option key={index} value={element}>
+              {element}
+            </option>
           ))}
         </Select>
       </FormControl>

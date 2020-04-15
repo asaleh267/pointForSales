@@ -17,7 +17,7 @@ export default (theme: Theme) => {
       textTransform: "uppercase",
       position: "absolute",
       width: "100%",
-      zIndex: 9999,
+      zIndex: 99,
       whiteSpace: "normal"
     },
     mask: {

@@ -1,5 +1,10 @@
 {
-  "category": ["Computers", "Fruits", "Clothes", "Services"],
+  "category": [
+    "Computers",
+    "Fruits",
+    "Clothes",
+    "Services"
+  ],
   "clients": [
     "Walk of customer",
     "Aseel Saleh",
@@ -122,15 +127,15 @@
       "instock": 5
     },
     {
-        "id": 7,
-        "name": "Computer Repair",
-        "category": "Services",
-        "price": 100,
-        "quantity": 1,
-        "imageUrl": "",
-        "bgColor": "#9b59b6",
-        "barcode": "9771234567003",
-        "instock": 5
+      "id": 7,
+      "name": "Computer Repair",
+      "category": "Services",
+      "price": 100,
+      "quantity": 1,
+      "imageUrl": "",
+      "bgColor": "#9b59b6",
+      "barcode": "9771234567003",
+      "instock": 5
     },
     {
       "id": 12,
@@ -153,6 +158,24 @@
       "bgColor": "",
       "barcode": "5012345678900",
       "instock": 0
+    }
+  ],
+  "sales": [
+    {
+      "id": 1,
+      "clientName": "Aseel Saleh",
+      "total": 300,
+      "noOfItems": 4,
+      "paymentMethod": "Cash",
+      "paymentValue": 100
+    },
+    {
+      "clientName": "Ziad Adeela",
+      "total": 368.9,
+      "noOfItems": 2,
+      "paymentMethod": "Cash",
+      "paymentValue": "120",
+      "id": 2
     }
   ]
 }
