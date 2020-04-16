@@ -9,17 +9,19 @@ import { Product } from "../../../../../../types/Product";
 export interface IProps {
   data: Product[];
   client: string;
+  discount: number;
 }
 // CartActions
 export const CartActionsComponent: React.FunctionComponent<
   IProps & WithStyles<typeof styles>
 > = (props) => {
-  const { classes, data, client } = props;
+  const { classes, data, client, discount  } = props;
   const [showConfirmDeleteDialog, setShowConfirmDeleteDialog] = React.useState(
     false
   );
   const [showPaymentDialog, setShowPaymentDialog] = React.useState(false);
 
+  console.log(discount);
   const onConfirmDeleteClick = () => {
     setShowConfirmDeleteDialog(false);
   };
@@ -74,6 +76,7 @@ export const CartActionsComponent: React.FunctionComponent<
           onCancel={onCancelPayment}
           data={data}
           client={client}
+          discount={discount}
         ></Payment>
       </div>
     </>

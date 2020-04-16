@@ -25,5 +25,5 @@ export const calculateNumberOfItems = (data: Product[]) => {
 export const calculateFinalTotal = (data: Product[], discount: number) => {
   const totalAfterTax = calculateTotalAfterTax(data);
   const discountPercentage = discount / 100;
-  return totalAfterTax - discountPercentage * totalAfterTax;
+  return totalAfterTax - (discountPercentage * totalAfterTax);
 };

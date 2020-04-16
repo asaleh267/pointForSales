@@ -129,6 +129,7 @@ export const CartComponent: React.FunctionComponent<
     setClient(value);
   };
 
+ 
   return (
     <Grid className={classes.cartContainer}>
       <CartTabs onChange={handleTabChange} onAdd={handleOnAdd}></CartTabs>

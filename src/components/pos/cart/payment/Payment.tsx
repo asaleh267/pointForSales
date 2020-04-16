@@ -21,6 +21,7 @@ export interface IProps {
   onCancel: () => void;
   client: string;
   data: Product[];
+  discount: number;
 }
 // Component
 export const PaymentComponent: React.FunctionComponent<
@@ -30,19 +31,23 @@ export const PaymentComponent: React.FunctionComponent<
     classes,
     open,
     client,
+    discount,
     data,
     onCancel = () => {},
-    onConfirm = () => {}
+    onConfirm = () => {},
   } = props;
   const [clients, setClients] = React.useState([]);
   const [paymentMethod, setPaymentMethod] = React.useState("Cash");
   const paymentMethods = ["Cash", "Cheque"];
   let paymentValue = "";
+  let total: number, noOfItems: number = 0;
 
   React.useEffect(() => {
     getClients().then((res: { data: any }) => {
       setClients(Object.values(res.data));
     });
+    total = calculateFinalTotal(data, 0);
+    noOfItems = calculateNumberOfItems(data);
   }, []);
 
   const handleSelectChange = (event: any) => {
@@ -51,19 +56,19 @@ export const PaymentComponent: React.FunctionComponent<
 
   const handleOnConfirm = () => {
     let paymentData = {
-      "clientName": client,
-      "total": calculateFinalTotal(data, 0),
-      "noOfItems": calculateNumberOfItems(data),
-      "paymentMethod": paymentMethod,
-      "paymentValue": paymentValue
-    }
+      clientName: client,
+      total: total,
+      noOfItems: noOfItems,
+      paymentMethod: paymentMethod,
+      paymentValue: paymentValue,
+    };
     submitPayment(paymentData);
     onConfirm();
-  }
+  };
 
   const handleOnChangePaymentValue = (event: any) => {
     paymentValue = event.target.value;
-  }
+  };
 
   return (
     <>
@@ -78,7 +83,7 @@ export const PaymentComponent: React.FunctionComponent<
           Items {calculateNumberOfItems(data)}
         </Typography>
         <Typography variant="h6">
-          Total {calculateFinalTotal(data, 0)}
+          Total {calculateFinalTotal(data, discount)}
         </Typography>
         <div>
           <Typography variant="h6">Payment </Typography>
@@ -90,11 +95,14 @@ export const PaymentComponent: React.FunctionComponent<
             ))}
           </Select>
         </div>
-            <TextField
-              id="outlined-basic"
-              onChange={handleOnChangePaymentValue}
-              label={paymentMethod === "Cash" ? "Paid" : "Cheque Number"}
-            />
+        <TextField
+          id="outlined-basic"
+          onChange={handleOnChangePaymentValue}
+          label={paymentMethod === "Cash" ? "Paid" : "Cheque Number"}
+        />
+        {paymentMethod === "Cash" && <Typography variant="h6">
+
+        </Typography>}
       </POSDialog>
     </>
   );

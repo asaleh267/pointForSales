@@ -25,7 +25,12 @@ export const CartTableComponent: React.FunctionComponent<
   IProps & WithStyles<typeof styles>
 > = (props) => {
   const { classes, data, client } = props;
+  const [discount, setDiscount] = useState(0);
 
+  const handleOnDiscountValue = (value: number) => {
+    setDiscount(value);
+  }
+  
   return (
     <>
       <TableContainer className={classes.tableContainer}>
@@ -34,8 +39,8 @@ export const CartTableComponent: React.FunctionComponent<
           <CartBody {...props}></CartBody>
         </Table>
       </TableContainer>
-      <CartFooter data={data}></CartFooter>
-      <CartActions client={client} data={data}></CartActions>
+      <CartFooter onChangeDiscountValue={handleOnDiscountValue} data={data}></CartFooter>
+      <CartActions discount={discount} client={client} data={data}></CartActions>
     </>
   );
 };

@@ -21,20 +21,18 @@ import {
 
 export interface IProps {
   data: Product[];
+  onChangeDiscountValue: (value: number) => void;
 }
 // Component
 export const CartFooterComponent: React.FunctionComponent<
   IProps & WithStyles<typeof styles>
 > = (props) => {
-  const { classes, data } = props;
+  const { classes, data, onChangeDiscountValue = () => {} } = props;
   const [discount, setDiscount] = useState(0);
-
+  
   const handleDiscountChange = (value: number) => {
-    if (value > 0 && value < 100) {
-      setDiscount(value);
-    } else {
-      setDiscount(0);
-    }
+    setDiscount(value);
+    onChangeDiscountValue(discount);
   };
 
   return (

@@ -6,6 +6,7 @@ import {
   withStyles,
   FormControl,
   OutlinedInput,
+  TextField,
 } from "@material-ui/core";
 import styles from "./styles";
 
@@ -20,23 +21,21 @@ const Discount: React.FunctionComponent<IProps & WithStyles<typeof styles>> = ({
   value,
   onChange = (value: number) => {},
 }) => {
-  const [discountValue, setDiscountValue] = useState<any>(value);
   const [error, setError] = useState(false);
 
   const handleOnpress = (event: any) => {
     const inputValue = event.target.value;
-    const discount = parseInt(inputValue);
+    let discount = parseInt(inputValue);
     if (discount === NaN || inputValue === '') {
-      setDiscountValue(0);
+      discount = 0;
+      setError(true);
     }
     else if (discount < 0 || discount > 100) {
-      setDiscountValue(discount);
       setError(true);
     } else {
-      setDiscountValue(discount);
       setError(false);
     }
-    onChange(discountValue);
+    onChange(discount);
   };
 
   return (
@@ -48,14 +47,13 @@ const Discount: React.FunctionComponent<IProps & WithStyles<typeof styles>> = ({
         Discount
       </TableCell>
       <TableCell className={classes.tableCell} align="left">
-        <FormControl>
-          <OutlinedInput
-            id="outlined-adornment-amount"
-            onChange={handleOnpress}
-            value={discountValue}
-            error={error}
-          />
-        </FormControl>{" "}
+      <TextField
+        label="Discount"
+        type="number"
+        onKeyUp={handleOnpress}
+        onChange={handleOnpress}
+        InputProps={{ inputProps: { min: 0, max: 100 } }}
+        />
       </TableCell>
       <TableCell className={classes.tableCell} align="right">
         {output}
