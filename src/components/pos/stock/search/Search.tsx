@@ -10,7 +10,7 @@ import {
 
 export interface IProps {
   value: string;
-  onChange?: (value: any) => void;
+  onChange?: (value: string) => void;
 }
 // Component
 export const Search: React.FunctionComponent<IProps>  = ({
@@ -22,14 +22,12 @@ export const Search: React.FunctionComponent<IProps>  = ({
     onChange(event.target.value);
   }
     return (
-    <div>
       <FormControl fullWidth variant="outlined">
         <InputLabel htmlFor="outlined-adornment-amount">Search</InputLabel>
         <OutlinedInput
           id="outlined-adornment-amount"
           startAdornment={
             <InputAdornment position="start">
-              {" "}
               <IconButton type="submit" aria-label="search">
                 <SearchIcon />
               </IconButton>
@@ -40,6 +38,5 @@ export const Search: React.FunctionComponent<IProps>  = ({
           value={value}
         />
       </FormControl>
-    </div>
   );
 };

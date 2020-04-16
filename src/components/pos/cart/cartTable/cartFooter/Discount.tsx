@@ -43,10 +43,10 @@ const Discount: React.FunctionComponent<IProps & WithStyles<typeof styles>> = ({
       <TableCell className={classes.tableCell} align="left">
         <TextField
           label="Discount"
-          type="number"
           onKeyUp={handleOnpress}
+          error={error}
           onChange={handleOnpress}
-          InputProps={{ inputProps: { min: 0, max: 100 } }}
+          helperText={error ? "Unvalid" : ""}
         />
       </TableCell>
       <TableCell className={classes.tableCell} align="right">

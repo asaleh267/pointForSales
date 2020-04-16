@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { WithStyles, withStyles } from "@material-ui/core/styles";
 import { StockTabs } from "./stockTabs/StockTabs";
 import { Search } from "./search/Search";
-import { Divider } from "@material-ui/core";
+import  Divider from "@material-ui/core/Divider";
 import ProductList from "./products/productList/ProductList";
 import style from "./style";
 import {
@@ -11,12 +11,12 @@ import {
 } from "../../../api/server";
 import { Product } from "../../../types/Product";
 export interface IProps {
-  selectedProduct?: (product: Product) => void;
+  selectProduct?: (product: Product) => void;
 }
 export const StockComponent: React.FunctionComponent<
   IProps & WithStyles<typeof style>
 > = (props) => {
-  const { classes, selectedProduct } = props;
+  const { classes, selectProduct } = props;
   const [filteredData, setFilteredData] = useState<Product[]>([]);
   const [activeTab, setActiveTab] = useState("all");
   const [searchBy, setSearchBy] = useState("");
@@ -48,9 +48,10 @@ export const StockComponent: React.FunctionComponent<
     }
   };
 
-  const filterItems = (arr: Product[], query: any) => {
-    return arr.filter(
-      (el) => el.name.toLowerCase().indexOf(query.toLowerCase()) !== -1
+  const filterItems = (productList: Product[], query: any) => {
+    return productList.filter(
+      (product) =>
+        product.name.toLowerCase().indexOf(query.toLowerCase()) !== -1
     );
   };
 
@@ -74,7 +75,7 @@ export const StockComponent: React.FunctionComponent<
       <Search value={searchBy} onChange={handleSearchChangeEvent}></Search>
       <Divider className={classes.divider}></Divider>
       <ProductList
-        selectedProduct={selectedProduct}
+        selectProduct={selectProduct}
         list={filteredData}
       ></ProductList>
     </>

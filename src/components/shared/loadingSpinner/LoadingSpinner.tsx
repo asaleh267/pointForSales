@@ -11,7 +11,7 @@ export interface IProps {
 export const LoadingSpinnerComponent : React.FunctionComponent<IProps &
 WithStyles<typeof style>> = (props) => (
   <Grid>
-    <CircularProgress color="secondary" />{" "}
+    <CircularProgress color="secondary" />
     <Typography variant="body1">{props.msg}</Typography>
   </Grid>
 );

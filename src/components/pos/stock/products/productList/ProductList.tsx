@@ -5,8 +5,8 @@ import styles from "./styles";
 import { ProductItem } from "../productItem/ProductItem";
 
 export interface IProps {
-  list: any;
-  selectedProduct?: (product: Product) => void;
+  list: Product[];
+  selectProduct?: (product: Product) => void;
 }
 // Component
 export const ProductList: React.FunctionComponent<
@@ -15,10 +15,10 @@ export const ProductList: React.FunctionComponent<
   const { classes, list } = props;
   return (
     <Grid container>
-      {list.map((element: Product, index: number) => (
-        element.instock > 0 &&  
-          <Grid key={index} item xs={2} className={classes.productContainer}>
-          <ProductItem {...props} product={element}></ProductItem>
+      {list.map((product: Product, index: number) => (
+        product.instock > 0 &&  
+          <Grid key={product.id} item xs={2} className={classes.productContainer}>
+          <ProductItem {...props} product={product}></ProductItem>
         </Grid>
 
       ))}

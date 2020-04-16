@@ -6,17 +6,17 @@ import { Product } from "../../../../../types/Product";
 
 export interface IProps {
   product: Product;
-  selectedProduct?: (product: Product) => void;
+  selectProduct?: (product: Product) => void;
 }
 export const ProductItemComponent: React.FC<IProps & WithStyles<typeof style>> = ({
   classes,
   product,
-  selectedProduct = () => {},
+  selectProduct = () => {},
 }) => {
   let productStyle, mask;
 
   const handleOnClick = () => {
-    selectedProduct({...product});
+    selectProduct({...product});
   };
   if (product.imageUrl) {
     productStyle = {

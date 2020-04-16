@@ -1,6 +1,6 @@
 import React from "react";
 import { TableRow, TableBody } from "@material-ui/core";
-import NoItemsTableCell from "./NoItemsTableCell";
+import CustomTableCell from "../controls/CustomTableCell";
 
 const CartBodyNoItems = () => (
   <TableBody>
@@ -11,3 +11,10 @@ const CartBodyNoItems = () => (
 );
 
 export default CartBodyNoItems;
+
+
+const NoItemsTableCell = () => (
+  <CustomTableCell colSpan={6}>
+    <strong>No items in the cart</strong>
+  </CustomTableCell>
+);

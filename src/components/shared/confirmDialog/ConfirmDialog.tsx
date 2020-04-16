@@ -11,11 +11,11 @@ import {
 export interface IProps {
   open: boolean;
   message: string;
-  cancel?: () => void;
-  confirm?: () => void;
+  onCancel?: () => void;
+  onConfirm?: () => void;
 }
 const ConfirmDialog: React.FunctionComponent<IProps> = (props) => {
-  const { open, message, cancel, confirm } = props;
+  const { open, message, onCancel, onConfirm } = props;
   return (
     <Dialog
       open={open}
@@ -29,10 +29,10 @@ const ConfirmDialog: React.FunctionComponent<IProps> = (props) => {
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={cancel} color="primary" autoFocus>
-          Cancel
+        <Button onClick={onCancel} color="primary" autoFocus>
+          onCancel
         </Button>
-        <Button onClick={confirm} color="secondary" autoFocus>
+        <Button onClick={onConfirm} color="secondary" autoFocus>
           Ok
         </Button>
       </DialogActions>

@@ -35,7 +35,7 @@ export const ClientComponent: React.FunctionComponent<
       <Typography className={classes.title} variant="h5">
         Choose a client
       </Typography>
-      <FormControl className={classes.inputField} variant="outlined">
+      <FormControl fullWidth variant="outlined">
         <Select native onChange={handleSelectChange}>
           {clients.map((element, index) => (
             <option key={index} value={element}>

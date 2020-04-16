@@ -19,7 +19,7 @@ export const DashboardComponent: React.FunctionComponent<WithStyles<
   
   return (
     <Box px={2}>
-      <Grid container spacing={0}>
+      <Grid container>
         <Grid item xs={5}>
           <Paper className={classes.dashboardPaper}>
             <Cart product={selectedProduct} ></Cart>
@@ -27,7 +27,7 @@ export const DashboardComponent: React.FunctionComponent<WithStyles<
         </Grid>
         <Grid item xs={7}>
           <Paper className={classes.dashboardPaper}>
-            <Stock selectedProduct={handleOnClickProduct}></Stock>
+            <Stock selectProduct={handleOnClickProduct}></Stock>
             <Divider></Divider>
           </Paper>
         </Grid>

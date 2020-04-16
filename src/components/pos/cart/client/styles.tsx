@@ -4,9 +4,6 @@ export default (theme: Theme) => {
   return createStyles({
     title: {
       textAlign: "left"
-    },
-    inputField: {
-      width: '100%'
     }
   });
 }

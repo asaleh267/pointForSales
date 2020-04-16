@@ -50,8 +50,8 @@ export const CartActionsComponent: React.FunctionComponent<
       <ConfirmDialog
         open={showConfirmDeleteDialog}
         message="You will not be able to recover this Data later! Are you sure ?"
-        confirm={onConfirmDeleteClick}
-        cancel={onCancelConfirmDeleteClick}
+        onConfirm={onConfirmDeleteClick}
+        onCancel={onCancelConfirmDeleteClick}
       ></ConfirmDialog>
       <div className={classes.actions}>
         <Button

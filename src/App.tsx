@@ -11,7 +11,7 @@ class App extends React.Component {
     return (
       <ThemeProvider theme={posTheme}>
         <Router>
-          <Grid container spacing={1}>
+          <Grid container>
             <Grid item xs={12}>
               <Navbar></Navbar>
             </Grid>

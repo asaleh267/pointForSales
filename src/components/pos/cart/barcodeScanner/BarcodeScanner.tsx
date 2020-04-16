@@ -46,7 +46,7 @@ export const BarcodeScannerComponent: React.FunctionComponent<
 
   return (
     <TextField
-      fullWidth={true}
+      fullWidth
       onKeyUp={handleOnpress}
       className={classes.input}
       id="outlined-basic"

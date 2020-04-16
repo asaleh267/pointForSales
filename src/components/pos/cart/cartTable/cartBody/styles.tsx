@@ -13,9 +13,7 @@ export default (theme: Theme) => {
       minWidth: 28
     },
     quantityContainer: {
-      display: "flex",
-      alignItems: "stretch",
-      justifyContent: "space-between",
+      
       width: 100,
     },
     input: {
@@ -27,7 +25,6 @@ export default (theme: Theme) => {
       width: 28,
       height: 28,
       minWidth: 28
-    },
-    deleteIcon: {}
+    }
   });
 }

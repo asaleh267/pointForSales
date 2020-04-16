@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { WithStyles, Button, withStyles } from "@material-ui/core";
+import { WithStyles, Button, withStyles, Grid } from "@material-ui/core";
 import styles from "./styles";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
@@ -32,7 +32,7 @@ const Quantity: React.FunctionComponent<IProps & WithStyles<typeof styles>> = (
   }, [value]);
 
   return (
-    <div className={classes.quantityContainer}>
+    <Grid container alignItems="stretch" justify="space-between">
       <Button
         variant="contained"
         color="primary"
@@ -52,7 +52,7 @@ const Quantity: React.FunctionComponent<IProps & WithStyles<typeof styles>> = (
         startIcon={<AddIcon />}
         disabled={quantity === inStock}
       ></Button>
-    </div>
+    </Grid>
   );
 };
 

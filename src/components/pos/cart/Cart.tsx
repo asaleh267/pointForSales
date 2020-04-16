@@ -73,7 +73,7 @@ export const CartComponent: React.FunctionComponent<
     }
   }, [cartList]);
 
-  const addProductToCart = (product: any) => {
+  const addProductToCart = (product: Product) => {
     let productIndex = cartList.findIndex(
       (element) => element.id === product.id
     );
@@ -131,7 +131,7 @@ export const CartComponent: React.FunctionComponent<
 
  
   return (
-    <Grid className={classes.cartContainer}>
+    <Grid container direction="column">
       <CartTabs onChange={handleTabChange} onAdd={handleOnAdd}></CartTabs>
       <Divider className={classes.divider}></Divider>
       <Client onChange={handleChangeCustomer}></Client>

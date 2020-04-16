@@ -28,20 +28,20 @@ export const CartBodyComponent: React.FunctionComponent<
 
   return (
     <TableBody>
-      {data.map((element: Product) => (
-        <TableRow className={classes.row} key={element.id}>
+      {data.map((product: Product) => (
+        <TableRow className={classes.row} key={product.id}>
           <TableCell>
             <StyledDeleteItem
-              itemID={element.id}
+              itemID={product.id}
               onDelete={deleteItem}
             ></StyledDeleteItem>
           </TableCell>
-          <TableCell>{element.name}</TableCell>
-          <TableCell>{element.price}</TableCell>
+          <TableCell>{product.name}</TableCell>
+          <TableCell>{product.price}</TableCell>
           <TableCell>
-            <Quantity onChange={changeQuantity} elementID={element.id} value={element.quantity} inStock={element.instock}></Quantity>
+            <Quantity onChange={changeQuantity} elementID={product.id} value={product.quantity} inStock={product.instock}></Quantity>
           </TableCell>
-          <TableCell>{element.price * element.quantity}</TableCell>
+          <TableCell>{product.price * product.quantity}</TableCell>
         </TableRow>
       ))}
     </TableBody>

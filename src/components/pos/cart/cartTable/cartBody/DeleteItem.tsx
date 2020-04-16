@@ -20,7 +20,7 @@ const DeleteItem: React.FunctionComponent<
       color="secondary"
       size="small"
       className={classes.deleteButton}
-      startIcon={<RemoveCircleIcon className={classes.deleteIcon} />}
+      startIcon={<RemoveCircleIcon />}
       onClick={handleOnClick}
     ></Button>
   );
