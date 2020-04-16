@@ -9,12 +9,13 @@ export default (theme: Theme) => {
       color: colors.darkGrey,
       padding: theme.spacing(1),
       paddingTop: theme.spacing(1),
-      paddingBottom: theme.spacing(1) 
+      paddingBottom: theme.spacing(1),
     },
     tableCell: {
       padding: theme.spacing(1),
       paddingTop: theme.spacing(1),
-      paddingBottom: theme.spacing(1) 
-    }
+      paddingBottom: theme.spacing(1),
+    },
+    greyBackground: { backgroundColor: "#f5f5f5" },
   });
-}
+};

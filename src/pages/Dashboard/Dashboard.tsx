@@ -19,14 +19,14 @@ export const DashboardComponent: React.FunctionComponent<WithStyles<
   
   return (
     <Box px={2}>
-      <Grid container spacing={0} className={classes.container}>
-        <Grid item style={{ gridColumnEnd: "span 5" }}>
-          <Paper className={classes.paper}>
+      <Grid container spacing={0}>
+        <Grid item xs={5}>
+          <Paper className={classes.dashboardPaper}>
             <Cart product={selectedProduct} ></Cart>
           </Paper>
         </Grid>
-        <Grid item style={{ gridColumnEnd: "span 7" }}>
-          <Paper className={classes.paper}>
+        <Grid item xs={7}>
+          <Paper className={classes.dashboardPaper}>
             <Stock selectedProduct={handleOnClickProduct}></Stock>
             <Divider></Divider>
           </Paper>

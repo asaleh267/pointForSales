@@ -13,7 +13,6 @@ function TabPanel(props: any) {
 
   return (
     <Typography
-      style={{ padding: 0 }}
       component="div"
       role="tabpanel"
       hidden={value !== index}
@@ -66,7 +65,7 @@ export const POSTabsComponent: React.FunctionComponent<
 
   return (
     <div className={classes.root}>
-      <div style={{ display: "flex" }}>
+      <div className={classes.tabContainer}>
         {tabs.length > 0 && (
           <Tabs value={selectedTab || false} onChange={handleTabChange}>
             {all && (

@@ -28,6 +28,9 @@ export default (theme: Theme) => {
       backgroundColor: colors.darkGrey,
       borderBottom: "3px solid red",
       color: colors.lightGrey
+    },
+    tabContainer: {
+      display: "flex"
     }
   });
 }

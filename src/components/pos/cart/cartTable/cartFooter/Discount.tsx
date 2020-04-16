@@ -26,11 +26,10 @@ const Discount: React.FunctionComponent<IProps & WithStyles<typeof styles>> = ({
   const handleOnpress = (event: any) => {
     const inputValue = event.target.value;
     let discount = parseInt(inputValue);
-    if (discount === NaN || inputValue === '') {
+    if (discount === NaN || inputValue === "") {
       discount = 0;
       setError(true);
-    }
-    else if (discount < 0 || discount > 100) {
+    } else if (discount < 0 || discount > 100) {
       setError(true);
     } else {
       setError(false);
@@ -40,19 +39,14 @@ const Discount: React.FunctionComponent<IProps & WithStyles<typeof styles>> = ({
 
   return (
     <TableRow>
-      <TableCell
-        className={classes.tableCell}
-        style={{ backgroundColor: "#f5f5f5" }}
-      >
-        Discount
-      </TableCell>
+      <TableCell className={classes.title}>Discount</TableCell>
       <TableCell className={classes.tableCell} align="left">
-      <TextField
-        label="Discount"
-        type="number"
-        onKeyUp={handleOnpress}
-        onChange={handleOnpress}
-        InputProps={{ inputProps: { min: 0, max: 100 } }}
+        <TextField
+          label="Discount"
+          type="number"
+          onKeyUp={handleOnpress}
+          onChange={handleOnpress}
+          InputProps={{ inputProps: { min: 0, max: 100 } }}
         />
       </TableCell>
       <TableCell className={classes.tableCell} align="right">

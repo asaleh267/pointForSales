@@ -6,22 +6,17 @@ export interface IProps {
   output: number;
 }
 const Total: React.FunctionComponent<IProps & WithStyles<typeof styles>> = ({
-    classes,
-    output
+  classes,
+  output,
 }) => {
   return (
     <TableRow>
-      <TableCell
-        className={classes.tableCell}
-        style={{ backgroundColor: "#f5f5f5" }}
-      >
-        Total
-      </TableCell>
+      <TableCell className={classes.title}>Total</TableCell>
       <TableCell className={classes.tableCell} align="left">
-        { output}
+        {output}
       </TableCell>
     </TableRow>
   );
 };
 const StyledTotal = withStyles(styles)(Total);
-export default StyledTotal ;
+export default StyledTotal;
