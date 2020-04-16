@@ -15,7 +15,7 @@ import POSDialog from "../../../shared/posDialog";
 import { Product } from "../../../../types/Product";
 import { calculateFinalTotal, calculateNumberOfItems } from "../utils/utils";
 
-export interface IProps {
+export interface PaymentProps {
   open: boolean;
   onConfirm: () => void;
   onCancel: () => void;
@@ -25,7 +25,7 @@ export interface IProps {
 }
 // Component
 export const PaymentComponent: React.FunctionComponent<
-  IProps & WithStyles<typeof styles>
+PaymentProps & WithStyles<typeof styles>
 > = (props) => {
   const {
     classes,

@@ -2,12 +2,12 @@ import React from "react";
 import { WithStyles, Button, withStyles } from "@material-ui/core";
 import styles from "./styles";
 import RemoveCircleIcon from "@material-ui/icons/RemoveCircle";
-export interface IProps {
+export interface DeleteItemProps {
   itemID: number;
   onDelete?: (productID: number) => void;
 }
 const DeleteItem: React.FunctionComponent<
-  IProps & WithStyles<typeof styles>
+DeleteItemProps & WithStyles<typeof styles>
 > = ({ onDelete = () => {}, classes, itemID }) => {
 
   const handleOnClick = () => {

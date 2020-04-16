@@ -4,11 +4,11 @@ import { Typography } from "@material-ui/core";
 import style from "./style";
 import { Product } from "../../../../../types/Product";
 
-export interface IProps {
+export interface ProductItemProps {
   product: Product;
   selectProduct?: (product: Product) => void;
 }
-export const ProductItemComponent: React.FC<IProps & WithStyles<typeof style>> = ({
+export const ProductItemComponent: React.FC<ProductItemProps & WithStyles<typeof style>> = ({
   classes,
   product,
   selectProduct = () => {},

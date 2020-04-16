@@ -32,7 +32,7 @@ function a11yProps(index: number) {
   };
 }
 
-export interface POSTabsIProps {
+export interface POSTabsProps {
   tabs: any[];
   value?: string;
   onChange?: (value: string) => void;
@@ -43,7 +43,7 @@ export interface POSTabsIProps {
   onRemoveTab?: () => void;
 }
 export const POSTabsComponent: React.FunctionComponent<
-  POSTabsIProps & WithStyles<typeof styles>
+  POSTabsProps & WithStyles<typeof styles>
 > = ({
   classes,
   tabs = [],

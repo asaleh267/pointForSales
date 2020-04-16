@@ -11,12 +11,12 @@ import { getClients } from "../../../../api/server";
 
 import styles from "./styles";
 
-export interface IProps {
+export interface ClientProps {
   onChange: (value: string) => void;
 }
 // Component
 export const ClientComponent: React.FunctionComponent<
-  IProps & WithStyles<typeof styles>
+ClientProps & WithStyles<typeof styles>
 > = (props) => {
   const { classes, onChange = () => {} } = props;
   const [clients, setClients] = React.useState([]);

@@ -8,12 +8,12 @@ import {
   IconButton
 } from "@material-ui/core";
 
-export interface IProps {
+export interface SearchProps {
   value: string;
   onChange?: (value: string) => void;
 }
 // Component
-export const Search: React.FunctionComponent<IProps>  = ({
+export const Search: React.FunctionComponent<SearchProps>  = ({
   value = "",
   onChange = () => {},
 }) => {

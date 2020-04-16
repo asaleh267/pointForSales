@@ -2,10 +2,10 @@ import React from "react";
 import { TableRow, TableCell, WithStyles, withStyles } from "@material-ui/core";
 import styles from "./styles";
 
-export interface IProps {
+export interface TotalProps {
   output: number;
 }
-const Total: React.FunctionComponent<IProps & WithStyles<typeof styles>> = ({
+const Total: React.FunctionComponent<TotalProps & WithStyles<typeof styles>> = ({
   classes,
   output,
 }) => {

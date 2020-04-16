@@ -13,7 +13,7 @@ import CartFooter from "./cartFooter";
 import CartActions from "./controls/cartActions";
 import { Product } from "../../../../types/Product";
 
-export interface IProps {
+export interface CartTableProps {
   data: Product[];
   deleteItem: (productID: number) => void;
   changeQuantity: (productID: number, quantity: number) => void;
@@ -22,7 +22,7 @@ export interface IProps {
 
 // Component
 export const CartTableComponent: React.FunctionComponent<
-  IProps & WithStyles<typeof styles>
+CartTableProps & WithStyles<typeof styles>
 > = (props) => {
   const { classes, data, client } = props;
   const [discount, setDiscount] = useState(0);

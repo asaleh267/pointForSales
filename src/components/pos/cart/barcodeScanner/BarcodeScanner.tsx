@@ -11,12 +11,12 @@ import { Product } from "../../../../types/Product";
 
 const validbarcode = require("barcode-validator");
 
-export interface IProps {
+export interface BarcodeScannerProps {
   onChangeBarcode?: (product: Product) => void;
 }
 // Component
 export const BarcodeScannerComponent: React.FunctionComponent<
-  IProps & WithStyles<typeof styles>
+BarcodeScannerProps & WithStyles<typeof styles>
 > = ({
   classes,
   onChangeBarcode = () => {},

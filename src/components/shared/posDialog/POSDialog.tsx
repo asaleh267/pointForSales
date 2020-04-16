@@ -10,7 +10,7 @@ import {
 } from "@material-ui/core";
 import styles from "./styles";
 
-export interface IProps {
+export interface POSDialogProps {
   open: boolean;
   title: string;
   children: React.ReactNode;
@@ -18,7 +18,7 @@ export interface IProps {
   onCancel: () => void;
 }
 export const POSDialogComponent: React.FunctionComponent<
-  IProps & WithStyles<typeof styles>
+  POSDialogProps & WithStyles<typeof styles>
 > = (props) => {
   const {
     classes,

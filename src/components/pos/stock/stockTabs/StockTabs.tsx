@@ -5,11 +5,11 @@ import { WithStyles } from "@material-ui/core";
 
 // Component
 
-export interface IProps {
+export interface StockTabsProps {
   value: any;
   onChange?: (category: string, value: any) => void;
 }
-export const StockTabs: React.FunctionComponent<IProps> = ({
+export const StockTabs: React.FunctionComponent<StockTabsProps> = ({
   value = 0,
   onChange = () => {},
 }) => {

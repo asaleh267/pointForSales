@@ -7,13 +7,13 @@ import CartTable from "./cartTable";
 import { Product } from "../../../types/Product";
 import { CartTabs } from "./cartTabs/CartTabs";
 
-export interface IProps {
+export interface CartProps {
   product?: Product;
 }
 
 // Component
 export const CartComponent: React.FunctionComponent<
-  IProps & WithStyles<typeof styles>
+CartProps & WithStyles<typeof styles>
 > = ({ classes, product }) => {
   const [cartList, setCartList] = useState<Product[]>([]);
   const [client, setClient] = useState<string>("Walk of customer");

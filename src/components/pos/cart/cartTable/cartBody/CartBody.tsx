@@ -11,14 +11,14 @@ import CartBodyNoItems from "./CartBodyNoItems";
 import { Product } from "../../../../../types/Product";
 import Quantity from "./Quantity";
 import StyledDeleteItem from "./DeleteItem";
-export interface IProps {
+export interface CartBodyProps {
   data: Product[];
   deleteItem: (productID: number) => void;
   changeQuantity: (productID: number, quantity: number) => void;
 }
 // Component
 export const CartBodyComponent: React.FunctionComponent<
-  IProps & WithStyles<typeof styles>
+CartBodyProps & WithStyles<typeof styles>
 > = (props) => {
   const { classes, data, deleteItem, changeQuantity } = props;
 

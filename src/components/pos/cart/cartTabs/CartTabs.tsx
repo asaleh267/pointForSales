@@ -4,12 +4,12 @@ import { getCategories } from "../../../../api/server";
 
 // Component
 
-export interface IProps {
+export interface CartTabsProps {
   onChange?: (value: string) => void;
   onAdd?: () => void;
 } 
 
-export const CartTabs: React.FunctionComponent<IProps> = ({
+export const CartTabs: React.FunctionComponent<CartTabsProps> = ({
   onChange = () => {},
   onAdd = () => {}
 }) => {

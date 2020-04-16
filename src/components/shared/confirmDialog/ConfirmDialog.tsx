@@ -8,13 +8,13 @@ import {
   Button,
 } from "@material-ui/core";
 
-export interface IProps {
+export interface ConfirmDialogProps {
   open: boolean;
   message: string;
   onCancel?: () => void;
   onConfirm?: () => void;
 }
-const ConfirmDialog: React.FunctionComponent<IProps> = (props) => {
+const ConfirmDialog: React.FunctionComponent<ConfirmDialogProps> = (props) => {
   const { open, message, onCancel, onConfirm } = props;
   return (
     <Dialog

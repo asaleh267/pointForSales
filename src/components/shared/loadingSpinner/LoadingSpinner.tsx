@@ -4,11 +4,11 @@ import Typography from "@material-ui/core/Typography";
 import { Grid, WithStyles, withStyles } from "@material-ui/core";
 import style from "./style";
 
-export interface IProps {
+export interface LoadingSpinnerProps {
   msg: string;
 }
 
-export const LoadingSpinnerComponent : React.FunctionComponent<IProps &
+export const LoadingSpinnerComponent : React.FunctionComponent<LoadingSpinnerProps &
 WithStyles<typeof style>> = (props) => (
   <Grid>
     <CircularProgress color="secondary" />

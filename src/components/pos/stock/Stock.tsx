@@ -10,11 +10,11 @@ import {
   getProductsFilteredByCategory,
 } from "../../../api/server";
 import { Product } from "../../../types/Product";
-export interface IProps {
+export interface StockProps {
   selectProduct?: (product: Product) => void;
 }
 export const StockComponent: React.FunctionComponent<
-  IProps & WithStyles<typeof style>
+  StockProps & WithStyles<typeof style>
 > = (props) => {
   const { classes, selectProduct } = props;
   const [filteredData, setFilteredData] = useState<Product[]>([]);

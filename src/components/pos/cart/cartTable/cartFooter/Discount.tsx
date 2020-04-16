@@ -10,12 +10,12 @@ import {
 } from "@material-ui/core";
 import styles from "./styles";
 
-export interface IProps {
+export interface DiscountProps {
   output: number;
   value: number;
   onChange: (value: number) => void;
 }
-const Discount: React.FunctionComponent<IProps & WithStyles<typeof styles>> = ({
+const Discount: React.FunctionComponent<DiscountProps & WithStyles<typeof styles>> = ({
   classes,
   output,
   value,

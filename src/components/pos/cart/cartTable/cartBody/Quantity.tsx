@@ -3,13 +3,13 @@ import { WithStyles, Button, withStyles, Grid } from "@material-ui/core";
 import styles from "./styles";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
-export interface IProps {
+export interface QuantityProps {
   elementID: number;
   value: number;
   inStock: number;
   onChange?: (elementID: number, value: number) => void;
 }
-const Quantity: React.FunctionComponent<IProps & WithStyles<typeof styles>> = (
+const Quantity: React.FunctionComponent<QuantityProps & WithStyles<typeof styles>> = (
   props
 ) => {
   const { classes, elementID, value, onChange = () => {}, inStock } = props;

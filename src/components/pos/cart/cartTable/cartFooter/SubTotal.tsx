@@ -2,11 +2,11 @@ import React from "react";
 import { TableRow, TableCell, WithStyles, withStyles } from "@material-ui/core";
 import styles from "./styles";
 
-export interface IProps {
+export interface SubtotalProps {
   output: number;
   noOfItems: number;
 }
-const SubTotal: React.FunctionComponent<IProps & WithStyles<typeof styles>> = ({
+const SubTotal: React.FunctionComponent<SubtotalProps & WithStyles<typeof styles>> = ({
   classes,
   output,
   noOfItems,

@@ -9,9 +9,8 @@ import {
 import DeleteRoundedIcon from "@material-ui/icons/DeleteRounded";
 import styles from "./styles";
 
-export interface IProps {}
 // Component
-export const CartHeaderComponent: React.FunctionComponent<IProps &
+export const CartHeaderComponent: React.FunctionComponent<
   WithStyles<typeof styles>> = props => {
   const { classes } = props;
   return (

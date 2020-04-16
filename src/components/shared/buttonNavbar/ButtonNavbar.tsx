@@ -4,12 +4,12 @@ import { makeStyles } from "@material-ui/styles";
 import { Button, WithStyles, withStyles } from "@material-ui/core";
 import style from "./style";
 
-export interface IProps {
+export interface ButtonNavbarProps {
   title: string;
   icon: JSX.Element;
 }
 // Component
-export const ButtonNavbarComponent: React.FunctionComponent<IProps &
+export const ButtonNavbarComponent: React.FunctionComponent<ButtonNavbarProps &
   WithStyles<typeof style>> = props => {
   const { classes, title, icon, ...rest } = props;
   return (

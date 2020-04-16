@@ -2,11 +2,11 @@ import React from "react";
 import { TableRow, TableCell, WithStyles, withStyles } from "@material-ui/core";
 import styles from "./styles";
 
-export interface IProps {
+export interface OrderTaxProps {
   tax: number;
   output: number;
 }
-const OrderTax: React.FunctionComponent<IProps & WithStyles<typeof styles>> = ({
+const OrderTax: React.FunctionComponent<OrderTaxProps & WithStyles<typeof styles>> = ({
   classes,
   tax,
   output,

@@ -6,14 +6,14 @@ import ConfirmDialog from "../../../../../shared/confirmDialog/ConfirmDialog";
 import Payment from "../../../payment";
 import { Product } from "../../../../../../types/Product";
 
-export interface IProps {
+export interface CartActionsProps {
   data: Product[];
   client: string;
   discount: number;
 }
 // CartActions
 export const CartActionsComponent: React.FunctionComponent<
-  IProps & WithStyles<typeof styles>
+CartActionsProps & WithStyles<typeof styles>
 > = (props) => {
   const { classes, data, client, discount  } = props;
   const [showConfirmDeleteDialog, setShowConfirmDeleteDialog] = React.useState(

@@ -19,17 +19,17 @@ import {
   calculateFinalTotal,
 } from "../../utils/utils";
 
-export interface IProps {
+export interface CartFooterProps {
   data: Product[];
   onChangeDiscountValue: (value: number) => void;
 }
 // Component
 export const CartFooterComponent: React.FunctionComponent<
-  IProps & WithStyles<typeof styles>
+CartFooterProps & WithStyles<typeof styles>
 > = (props) => {
   const { classes, data, onChangeDiscountValue = () => {} } = props;
   const [discount, setDiscount] = useState(0);
-  
+
   const handleDiscountChange = (value: number) => {
     setDiscount(value);
     onChangeDiscountValue(discount);
