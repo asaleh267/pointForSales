@@ -4,7 +4,7 @@ import { LoginPage } from "./pages/Login/LoginPage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { DashboardPage } from "./pages/Dashboard/Dashboard";
 import { Grid, ThemeProvider } from "@material-ui/core";
-import { Navbar } from "./components/shared/navbar/Navbar";
+import { Navbar } from "./components/navbar/Navbar";
 import { posTheme } from "./constants/posTheme";
 class App extends React.Component {
   render() {
