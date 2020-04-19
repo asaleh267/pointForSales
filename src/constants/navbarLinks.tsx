@@ -8,11 +8,11 @@ import ClassIcon from "@material-ui/icons/Class";
 import AssessmentIcon from "@material-ui/icons/Assessment";
 
 export const navbarLinks = [
-    { link: "/dashboard", title: "POS", icon: <DashboardIcon style={{ fontSize: 15, paddingRight: 4 }}/> },
-    { link: "/product", title: "Product", icon: <CardGiftcardIcon style={{ fontSize: 15, paddingRight: 4 }}/> },
-    { link: "/sales", title: "Sales", icon: <LoyaltyIcon style={{ fontSize: 15, paddingRight: 4 }}/> },
-    { link: "/expense", title: "Expense", icon: <AttachMoneyIcon style={{ fontSize: 15, paddingRight: 4 }}/> },
-    { link: "/categories", title: "Categories", icon: <ClassIcon style={{ fontSize: 15, paddingRight: 4 }}/> },
-    { link: "/settings", title: "Settings", icon: <SettingsIcon style={{ fontSize: 15, paddingRight: 4 }}/> },
-    { link: "/reports", title: "Reports", icon: <AssessmentIcon style={{ fontSize: 15, paddingRight: 4 }}/> }
+    { link: "/dashboard", title: "POS", icon: <DashboardIcon/> },
+    { link: "/product", title: "Product", icon: <CardGiftcardIcon/> },
+    { link: "/sales", title: "Sales", icon: <LoyaltyIcon/> },
+    { link: "/expense", title: "Expense", icon: <AttachMoneyIcon/> },
+    { link: "/categories", title: "Categories", icon: <ClassIcon/> },
+    { link: "/settings", title: "Settings", icon: <SettingsIcon/> },
+    { link: "/reports", title: "Reports", icon: <AssessmentIcon/> }
   ];

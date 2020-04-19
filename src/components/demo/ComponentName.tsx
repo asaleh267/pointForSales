@@ -3,11 +3,10 @@ import { WithStyles, withStyles } from "@material-ui/core";
 
 import styles from "./styles";
 
-export interface IProps {
-  test: [];
+export interface ComponentProps {
 }
 // Component
-export const Component: React.FunctionComponent<IProps &
+export const Component: React.FunctionComponent<ComponentProps &
   WithStyles<typeof styles>> = props => {
   const { classes } = props;
   return <h1 className={classes.testClass}>Test</h1>;

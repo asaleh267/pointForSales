@@ -1,30 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import { WithStyles, withStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
-import { Stock } from "../../components/pos/stock/Stock";
-import { Divider } from "@material-ui/core";
+import { Stock } from "./components/stock/Stock";
+import { Divider, Grid, Box } from "@material-ui/core";
 import styles from "./styles";
+import Cart from "./components/cart";
+import { Product } from "../../types/Product";
 
-export const DashboardComponent: React.FunctionComponent<WithStyles<typeof styles>> = props => {
+export const DashboardComponent: React.FunctionComponent<WithStyles<
+  typeof styles
+>> = (props) => {
   const { classes } = props;
+  const [selectedProduct, setSelectedProduct] = useState<Product>();
 
+  const handleOnClickProduct = (product: Product) => {
+    setSelectedProduct(product);
+  };
+  
   return (
-    <div>
-      <div className={classes.container}>
-        <div style={{ gridColumnEnd: "span 5" }}>
-          <Paper className={classes.paper}>Cart Section</Paper>
-        </div>
-        <div style={{ gridColumnEnd: "span 7" }}>
-          <Paper className={classes.paper}>
-            <Stock></Stock>
+    <Box px={2}>
+      <Grid container>
+        <Grid item xs={5}>
+          <Paper className={classes.dashboardPaper}>
+            <Cart product={selectedProduct} ></Cart>
+          </Paper>
+        </Grid>
+        <Grid item xs={7}>
+          <Paper className={classes.dashboardPaper}>
+            <Stock selectProduct={handleOnClickProduct}></Stock>
             <Divider></Divider>
           </Paper>
-        </div>
-      </div>
-    </div>
+        </Grid>
+      </Grid>
+    </Box>
   );
-}
-
+};
 
 const StyledDashboard = withStyles(styles)(DashboardComponent);
 export { StyledDashboard as DashboardPage };

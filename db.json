@@ -1,8 +1,181 @@
 {
-    "category": [
-        "Drinks",
-        "Fruits",
-        "Sweet",
-        "Barbiqu"
-    ]
+  "category": [
+    "Computers",
+    "Fruits",
+    "Clothes",
+    "Services"
+  ],
+  "clients": [
+    "Walk of customer",
+    "Aseel Saleh",
+    "Karam Shaweish",
+    "Khalid Ardah",
+    "Sara Ahmed",
+    "Ziad Adeela",
+    "Mahmoud Abdlkareem",
+    "Noor Alazab"
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Computer",
+      "category": "Computers",
+      "price": 100,
+      "quantity": 1,
+      "imageUrl": "",
+      "bgColor": "#2e1da1",
+      "barcode": "616100007810",
+      "instock": 5
+    },
+    {
+      "id": 2,
+      "name": "Mouse",
+      "category": "Computers",
+      "price": 70,
+      "quantity": 1,
+      "imageUrl": "https://cdn11.bigcommerce.com/s-35xfkmxzrs/images/stencil/1280x1280/products/188/756/Computer_Mouse_Wireless_By_Sllik__19605.1537996114.jpg?c=2&imbypass=on",
+      "bgColor": "",
+      "barcode": "6151100007810",
+      "instock": 5
+    },
+    {
+      "id": 3,
+      "name": "Keyboard",
+      "category": "Computers",
+      "price": 30,
+      "quantity": 1,
+      "imageUrl": "https://s3-eu-west-1.amazonaws.com/backcslimages/product-images/1000-1000/Goldtouch-V2-Adjustable-Keyboard-Angle.jpg",
+      "bgColor": "",
+      "barcode": "6151100036810",
+      "instock": 5
+    },
+    {
+      "id": 4,
+      "name": "Apple",
+      "category": "Fruits",
+      "price": 10,
+      "quantity": 1,
+      "imageUrl": "https://i5.walmartimages.ca/images/Large/094/514/6000200094514.jpg",
+      "bgColor": "",
+      "barcode": "87162318",
+      "instock": 5
+    },
+    {
+      "id": 5,
+      "name": "Orange",
+      "category": "Fruits",
+      "price": 9,
+      "quantity": 1,
+      "imageUrl": "https://5.imimg.com/data5/KM/QP/MY-22954806/orange-250x250.jpg",
+      "bgColor": "",
+      "barcode": "977158767003",
+      "instock": 5
+    },
+    {
+      "id": 6,
+      "name": "Shirt",
+      "category": "Clothes",
+      "price": 50,
+      "quantity": 1,
+      "imageUrl": "https://contents.mediadecathlon.com/p1484240/k$ab565f3675dbdd7e3c486175e2c16583/men-s-trekking-shirt-travel-100-warm-maroon.jpg?&f=800x800",
+      "bgColor": "#9b59b6",
+      "barcode": "977157467003",
+      "instock": 5
+    },
+    {
+      "id": 8,
+      "name": "Kiwi",
+      "category": "Fruits",
+      "price": 15,
+      "quantity": 1,
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcShKWyiS22yXoVjFlkNJY02YhHvM01TNXx499dtDyiNwc9DPDvJ&usqp=CAU",
+      "bgColor": "#2ecc71",
+      "barcode": "9771527467003",
+      "instock": 5
+    },
+    {
+      "id": 9,
+      "name": "Gift Folding",
+      "category": "Services",
+      "price": 7,
+      "quantity": 1,
+      "imageUrl": "",
+      "bgColor": "#db1284",
+      "barcode": "9771547267003",
+      "instock": 5
+    },
+    {
+      "id": 10,
+      "name": "Jacket",
+      "category": "Clothes",
+      "price": 60,
+      "quantity": 1,
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTamfBksg2KkimKNL7EM46ETxcPdzf2pg5GB5J9wPEvnzTf1xkC&usqp=CAU",
+      "bgColor": "",
+      "barcode": "50124152",
+      "instock": 5
+    },
+    {
+      "id": 11,
+      "name": "Jeans",
+      "category": "Clothes",
+      "price": 150,
+      "quantity": 1,
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRYpwFQ-HV7sXDqLTa91Eq9eKWREJ5d_gQ9PhtC_dKlxrXajVKb&usqp=CAU",
+      "bgColor": "",
+      "barcode": "9771237467003",
+      "instock": 5
+    },
+    {
+      "id": 7,
+      "name": "Computer Repair",
+      "category": "Services",
+      "price": 100,
+      "quantity": 1,
+      "imageUrl": "",
+      "bgColor": "#9b59b6",
+      "barcode": "9771234567003",
+      "instock": 5
+    },
+    {
+      "id": 12,
+      "name": "Motherboard",
+      "category": "Computers",
+      "price": 40,
+      "quantity": 1,
+      "imageUrl": "https://www.empowerlaptop.com/wp-content/uploads/2018/good/dmb10782-w1711-6.jpg",
+      "bgColor": "",
+      "barcode": "0705632441947",
+      "instock": 5
+    },
+    {
+      "id": 13,
+      "name": "Headphones",
+      "category": "Computers",
+      "price": 200,
+      "quantity": 1,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/3013/1908/products/Audeze-Mobius-Product-Shots---Oct-2018-CarbonFrontMic_2000x.png?v=1584592428",
+      "bgColor": "",
+      "barcode": "5012345678900",
+      "instock": 0
+    }
+  ],
+  "sales": [
+    {
+      "id": 1,
+      "clientName": "Aseel Saleh",
+      "total": 300,
+      "noOfItems": 4,
+      "paymentMethod": "Cash",
+      "paymentValue": 100
+    },
+    {
+      "clientName": "Ziad Adeela",
+      "total": 368.9,
+      "noOfItems": 2,
+      "paymentMethod": "Cash",
+      "paymentValue": "120",
+      "id": 2
+    }
+  ]
 }
